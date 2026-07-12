@@ -1,13 +1,15 @@
+document.documentElement.classList.add('js-enabled');
+
 const navToggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('#primary-nav');
 
-navToggle.addEventListener('click', () => {
+navToggle?.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', String(isOpen));
   navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
 });
 
-nav.querySelectorAll('a').forEach((link) => {
+nav?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
     nav.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
@@ -17,13 +19,17 @@ nav.querySelectorAll('a').forEach((link) => {
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 
-const observer = new IntersectionObserver((entries) => {
+const revealElements = document.querySelectorAll('.reveal');
+const observer = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.12 }) : null;
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+revealElements.forEach((element) => {
+  if (observer) observer.observe(element);
+  else element.classList.add('visible');
+});
