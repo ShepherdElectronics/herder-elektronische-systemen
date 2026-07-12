@@ -4,12 +4,14 @@ const nav = document.querySelector('#primary-nav');
 navToggle.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
 });
 
 nav.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
     nav.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open navigation');
   });
 });
 
