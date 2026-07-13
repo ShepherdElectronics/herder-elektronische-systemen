@@ -414,3 +414,41 @@ Confidentiality
 Project details are handled confidentially. Public portfolio material is published only when authorized.
 Contact
 To start a technical discussion, write to info@herdersystemen.com.
+
+ENGINEERING APPROACH PAGE
+Engineering Approach
+Engineering decisions made before they become expensive.
+Good engineering reduces uncertainty one decision at a time. We connect architecture, implementation, integration and validation so the next step is based on evidence rather than guesswork.
+The process adapts to the project: sometimes the first job is to understand an inherited system; sometimes it is to make a prototype measurable.
+Start a technical discussion
+
+ENGINEERING PROCESS
+From uncertainty to evidence.
+Understand
+Requirements, constraints, existing hardware and software, failure modes, available documentation and project risks.
+Architect
+System boundaries, hardware and software interfaces, communications, control strategy, test strategy and documentation structure.
+Build
+Firmware, electronics, embedded systems, controls, automation and prototype integration shaped around the decisions that matter.
+Validate
+Measurements, repeatable tests, data analysis, debugging, technical reporting and handoff documentation.
+
+HOW IT APPLIES
+The same discipline across the system.
+Embedded systems
+Firmware architecture, MCU integration, communication interfaces and control implementation.
+Power electronics
+Prototype bring-up, measurements, switching behavior and design iteration guided by bench evidence.
+Test automation
+Repeatable validation, instrumentation, data collection and analysis that make results easier to review.
+System recovery
+Understanding inherited systems, finding failure points and stabilizing incomplete work.
+
+ENGINEERING PRINCIPLE
+Make the critical decision while it is still cheap to change.
+Early architecture and validation expose expensive assumptions while there is still room to change the design, the interface or the test method.
+
+WORKING METHOD
+Leave a system another engineer can use.
+The work is documented at the level the project needs: requirements and assumptions, interfaces, test conditions, measurements, decisions and next actions.
+The result is not a presentation about the system. It is a clearer system, a traceable technical record and a practical path to the next decision.
