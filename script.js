@@ -2,6 +2,7 @@ document.documentElement.classList.add('js-enabled');
 
 const navToggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('#primary-nav');
+document.querySelectorAll('.service-page .services-menu').forEach((menu) => menu.removeAttribute('open'));
 
 navToggle?.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
