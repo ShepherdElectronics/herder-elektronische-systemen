@@ -85,10 +85,10 @@ View Public Repository
 
 FEATURED PUBLIC WORK
 Controls at testbed scale.
-Public university research and engineering work completed within the Michigan Tech electric propulsion laboratory.
+PUBLIC UNIVERSITY RESEARCH AND ENGINEERING WORK
 
 TI Piccolo dual-motor PMSM dynamometer
-This public testbed brings together two PMSMs, TI C2000 F28069M control hardware, field-oriented control, QEP feedback, SCI-to-CAN communications and Speedgoat/MATLAB real-time testing.
+A dual-motor dynamometer built to develop, exercise and validate PMSM control across embedded firmware, CAN communications, real-time testing and measured torque-speed data.
 
 Jonathan's contribution
 Jonathan integrated the dual-motor control system, migrated telemetry from SCI to CAN, connected the testbed to Speedgoat real-time hardware and developed validation workflows for speed, torque, power and efficiency data.
@@ -97,8 +97,8 @@ Evidence and methods
 The repository includes architecture documentation, hardware integration notes, MATLAB/Python processing, efficiency maps and measured speed, torque and power data.
 
 Publication boundary
-This work was completed in a university and laboratory setting. It is not a private client engagement or an exclusively owned product. The site links to the public repository without reproducing its models or large source files.
-View public MTU repository
+This work was completed in a university laboratory setting. It is not a private client engagement or an exclusively owned product. The site links to the public repository without reproducing its models or large source files.
+VIEW PUBLIC REPOSITORY
 
 TECHNICAL RANGE
 Built for the whole picture.
@@ -178,7 +178,7 @@ F28069M control with SCI/UART commands, an explicit state machine, ePWM output, 
 View public repository
 TI Piccolo PMSM dynamometer
 Dual-motor work covering F28069M field-oriented control, QEP encoder feedback, SCI-to-CAN migration, real-time testing and validation.
-View public MTU repository
+VIEW PUBLIC REPOSITORY
 These are public technical projects, not presented as completed client contracts.
 
 ENGAGEMENT PROCESS
@@ -304,7 +304,7 @@ Waveform captures and bench validation notes show how measurements were used to 
 View public repository
 TI Piccolo PMSM dynamometer
 The public testbed documents Speedgoat/MATLAB real-time testing, efficiency mapping, validation plots and dual-motor control integration.
-View public MTU repository
+VIEW PUBLIC REPOSITORY
 These are public technical projects, not presented as completed client contracts.
 
 ENGAGEMENT PROCESS
@@ -370,7 +370,7 @@ A public F28069M demonstrator connecting SCI/UART commands, state handling, ePWM
 View public repository
 TI Piccolo PMSM dynamometer
 A public laboratory testbed integrating dual-motor controls, CAN communications, real-time testing and validation evidence.
-View public MTU repository
+VIEW PUBLIC REPOSITORY
 5V / 1A SMPS
 A documented offline flyback prototype with schematics, BOMs, waveforms and bench validation notes.
 View public repository

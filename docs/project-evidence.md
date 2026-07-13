@@ -34,7 +34,7 @@ Internal working document. Keep this ledger separate from public website copy. R
 - Project name: TI Piccolo dual-motor PMSM dynamometer
 - Repository URL: https://github.com/ShepherdElectronics/Labs_Dyno_TI-Piccolo-Motor-Drive-Testbed
 - Context: University/research and collaborative laboratory work with Jonathan's documented contribution
-- Allowed public claims: Public university research and engineering work completed within the Michigan Tech electric propulsion laboratory, including dual-motor PMSM dynamometer integration, TI C2000 F28069M control, field-oriented control, QEP encoder integration, SCI-to-CAN migration, Speedgoat/MATLAB real-time testing where documented, efficiency mapping, and validation workflows.
+- Allowed public claims: Public university research and engineering work completed in a university laboratory setting, including dual-motor PMSM dynamometer integration, TI C2000 F28069M control, field-oriented control, QEP encoder integration, SCI-to-CAN migration, Speedgoat/MATLAB real-time testing where documented, efficiency mapping, and validation workflows.
 - Claims to avoid: Do not present this as a private client engagement or exclusively owned product. Do not publish complete student exercises, instructional answer-key material, raw Simulink models, internal notes, sponsor material, credentials, private paths, or unverified measurements.
 - Evidence source: Public repository README, architecture documentation, hardware integration notes, MATLAB/Python processing, measured plots/data, and authorized project material. Check the repository license before reproducing substantial content.
 
