@@ -275,12 +275,13 @@ ABOUT HERDER ELEKTRONISCHE SYSTEMEN
 Engineering systems that can be understood, tested and trusted.
 Herder Elektronische Systemen is an independent engineering practice focused on embedded controls, power electronics, real-time testing, technical recovery and AI-assisted engineering software.
 01 / ORIGINS
-Built from a personal power-electronics laboratory.
-Herder Elektronische Systemen grew out of a personal engineering laboratory built by Jonathan Camfferman-Hernandez for hands-on work in power electronics, embedded control, electric machines, instrumentation and hardware validation.
-What began as a collection of development boards, test equipment, power stages, motors and experimental circuits gradually became a complete working environment for developing and investigating real engineering systems.
-The laboratory made it possible to work across the boundaries that often separate mechanical design, electronics, firmware, controls and measurement. A motor-drive problem could be followed from the power stage and current sensing through embedded firmware, communications, control models and measured test results.
-As the projects became larger, another problem became equally important: preserving the files, evidence, decisions and documentation needed to understand and continue the work. That need led naturally into repository recovery, technical documentation and the development of AI-assisted engineering tools.
-Herder Elektronische Systemen was formed from that combined practice: build the system, test the physical result, preserve the engineering evidence and leave the work in a state another engineer can understand.
+It began with a personal power-electronics laboratory.
+Herder Elektronische Systemen did not begin as a general consulting brand. It grew out of a personal engineering laboratory built by Jonathan Hernandez to work directly with power electronics, embedded control, electric machines, instrumentation and real-time testing.
+The laboratory started with development boards, test equipment, power stages, motors, sensors and experimental circuits. Over time, those individual tools became a working environment for developing complete systems: hardware connected to firmware, firmware connected to controls, controls connected to instrumentation, and measurements connected back to design decisions.
+That environment shaped the way the firm works today. Problems are not treated as isolated software, electrical or mechanical tasks. They are followed across the entire technical chain until the physical behavior, implementation and evidence agree.
+As the projects grew, another difficulty became impossible to ignore. Engineering work was often scattered across source files, models, test data, schematics, notes, archived revisions and incomplete documentation. Recovering the reasoning behind a project could become as difficult as building the project itself.
+That problem led to work in technical recovery, evidence preservation and AI-assisted engineering software. SafeFileAI and SafeECADAI emerged from the need to keep engineering conclusions connected to the files, measurements and decisions that support them.
+Herder Elektronische Systemen grew from that sequence of work: build the system, measure what it does, preserve the evidence and leave the project in a condition that another engineer can understand and continue.
 THE LABORATORY FOUNDATION
 Power-electronics prototyping
 Embedded control hardware
@@ -319,12 +320,12 @@ Test automation and instrumentation
 Design recovery and technical documentation
 Technically demanding early-stage product development
 06 / FOUNDER AND ENGINEERING LEAD
-Jonathan Camfferman-Hernandez
-Jonathan Camfferman-Hernandez is a mechanical engineer and the founder of Herder Elektronische Systemen. His work developed through years of independently building laboratory capability around power electronics, embedded systems, electric machines, precision motion, test automation and engineering software.
-Rather than treating hardware, firmware and analysis as separate disciplines, he works through the complete engineering path: understanding the physical system, developing or recovering its electronics and code, instrumenting its behavior, evaluating the resulting data and documenting what the evidence supports.
-His project work includes permanent-magnet motor-drive systems, field-oriented control, CAN-connected embedded platforms, power-converter prototypes, PCB design and bring-up, real-time test systems, precision motion equipment, automated instrumentation and recovery of complex technical repositories.
-The same laboratory work also exposed a recurring problem: engineering projects often become difficult to continue because their files, decisions, dependencies and evidence are fragmented or poorly explained. That experience led to the development of SafeFileAI and SafeECADAI, tools intended to help inspect, recover and validate engineering project data while keeping automated conclusions connected to traceable evidence.
-Jonathan established Herder Elektronische Systemen to bring this practical, cross-disciplinary approach to engineering projects that need more than isolated code, isolated hardware or surface-level documentation.
+Jonathan Hernandez
+Jonathan Hernandez is a mechanical engineer whose work developed through years of independently building laboratory capability around power electronics, embedded systems, electric machines, control systems and technical instrumentation.
+His experience includes permanent-magnet motor drives, field-oriented control, CAN-connected embedded platforms, real-time test systems, precision motion equipment, PCB design and bring-up, converter prototyping, automated data collection and recovery of complex engineering repositories.
+The distinguishing feature of his work is not any one discipline. It is the ability to move between them.
+A control problem may require inspecting the power stage. A firmware problem may originate in sensing or timing. A weak test result may come from instrumentation rather than the design itself. An apparently complete project may still be unusable because its files, assumptions and evidence are disconnected.
+Jonathan founded Herder Elektronische Systemen to address those interfaces directly. The practice is built around hands-on investigation, measured validation, careful recovery and documentation that preserves what is known, what remains uncertain and what should happen next.
 WORKING PERSPECTIVE
 Build enough of the system to understand the interfaces.
 Measure the physical behavior before making strong claims.
