@@ -2,6 +2,12 @@ document.documentElement.classList.add('js-enabled');
 
 const navToggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('#primary-nav');
+if (nav && !nav.querySelector('a[href="about.html"]')) {
+  const aboutLink = document.createElement('a');
+  aboutLink.href = 'about.html';
+  aboutLink.textContent = 'About';
+  nav.insertBefore(aboutLink, nav.querySelector('.nav-cta'));
+}
 document.querySelectorAll('.service-page .services-menu').forEach((menu) => menu.removeAttribute('open'));
 
 navToggle?.addEventListener('click', () => {

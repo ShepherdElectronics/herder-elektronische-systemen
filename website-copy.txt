@@ -8,6 +8,7 @@ Services
   System integration & recovery
 Approach
 Selected work
+About
 Start a technical discussion
 
 HOME
@@ -269,6 +270,51 @@ Contact information
 If you contact Herder Elektronische Systemen by email, the information you provide is used to respond to your inquiry and assess the requested engineering discussion. No complex contact backend is used by this static site.
 Public portfolio material
 Project details are handled confidentially. Public portfolio material is published only when authorized.
+
+ABOUT HERDER ELEKTRONISCHE SYSTEMEN
+Engineering systems that can be understood, tested and trusted.
+Herder Elektronische Systemen is an independent engineering practice focused on embedded controls, power electronics, real-time testing, technical recovery and AI-assisted engineering software.
+COMPANY FOCUS
+Work at the boundary between disciplines.
+The work is centered on systems where software must remain connected to physical evidence: measured signals, hardware behavior, source files, design records and reproducible tests.
+Projects are approached as complete engineering systems rather than isolated code or hardware tasks. The practice helps make the interfaces between those parts clear enough to build, test and continue.
+TECHNICAL INDEX
+Embedded: Embedded C/C++ and firmware
+Controls: Motor control and real-time systems
+Communications: CAN, UART, SPI and I²C
+Modeling: MATLAB and Simulink workflows
+Hardware: PCB design, bring-up and validation
+Power: Power-converter prototyping
+Testing: Automated test and instrumentation
+Recovery: Repository recovery and technical documentation
+Software: AI-assisted engineering tooling
+ENGINEERING PRINCIPLES
+Evidence before claims
+Preserve system context
+Make changes traceable
+Test the real integration
+Document uncertainty
+HOW THE PRACTICE WORKS
+Define the engineering boundary
+Inspect the existing system and evidence
+Reproduce current behavior
+Implement focused changes
+Validate and document the result
+GOOD-FIT ENGAGEMENTS
+Embedded or electromechanical prototypes
+Incomplete or inherited engineering projects
+Firmware and hardware integration
+Test automation and instrumentation
+Design recovery and technical documentation
+Technically demanding early-stage product development
+FOUNDER AND ENGINEERING LEAD
+Jonathan Camfferman-Hernandez
+Jonathan Camfferman-Hernandez is a mechanical engineer whose work spans embedded control, electric machines, power electronics, real-time testing, instrumentation and engineering software. His focus is on bringing incomplete or complex technical systems into a state that can be inspected, tested and continued with confidence.
+START A TECHNICAL DISCUSSION
+Start with the technical question.
+Describe the system, its current stage, the problem you are trying to resolve and what evidence is available. Secure file exchange can follow the initial discussion.
+Start a technical discussion
+Or write directly: info@herdersystemen.com
 Hosting and technical data
 The static site is deployed through Cloudflare Pages. Email inquiries are handled through Google Workspace at info@herdersystemen.com. This page does not state retention periods or regulatory compliance claims.
 
