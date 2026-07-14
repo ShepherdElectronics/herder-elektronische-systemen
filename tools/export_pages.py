@@ -75,6 +75,7 @@ def main() -> int:
         raise RuntimeError("No HTML pages found.")
 
     PDF_DIR.mkdir(parents=True, exist_ok=True)
+    ZIP_PATH.parent.mkdir(parents=True, exist_ok=True)
     for old_pdf in PDF_DIR.glob("*.pdf"):
         old_pdf.unlink()
 
@@ -91,6 +92,7 @@ def main() -> int:
 
     print(f"Created {len(pages)} PDFs")
     print(f"Created {ZIP_PATH.relative_to(ROOT)}")
+    print(f"ZIP absolute path: {ZIP_PATH.resolve()}")
     return 0
 
 
