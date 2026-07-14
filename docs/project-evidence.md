@@ -55,3 +55,7 @@ The public site provides a concise first-party detail page for each repository l
 - TI C2000 Actuator Controller: `projects/ti-c2000-actuator-controller.html`
 - TI Piccolo dual-motor PMSM dynamometer: `projects/ti-piccolo-pmsm-dynamometer.html`
 - 5 V / 1 A SMPS: `projects/5v-1a-smps.html`
+
+## Media publication workflow
+
+Project pages use reusable, project-specific media galleries. Every figure remains a labeled placeholder until an authorized image, diagram, plot, waveform or screenshot is supplied. Before publication, add alt text, a concise caption, provenance, and applicable technical metadata such as test date, operating point, instrument and firmware revision. Do not add metrics or visual evidence that cannot be traced to the public project material and its publication rights.

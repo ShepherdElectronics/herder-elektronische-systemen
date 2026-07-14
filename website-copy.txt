@@ -297,6 +297,27 @@ Media placeholder - replace with authorized image or plot before publication.
 This is representative personal engineering work, public technical work or university laboratory work as identified on each page, not a completed client contract. Claims are limited to documented evidence.
 View repository
 
+PROJECT MEDIA STRUCTURE
+ESP32 Robotics Control Platform
+Architecture placeholder: sensor to controller to actuator signal-flow diagram.
+Prototype placeholder: authorized hardware photograph.
+Behavior placeholder: measured response or software/hardware integration evidence.
+TI C2000 Actuator Controller
+State-machine placeholder: command, timeout and fault-latch sequence.
+PWM evidence placeholder: output-state capture.
+Hardware placeholder: F28069M controller photograph.
+TI Piccolo PMSM Dynamometer
+Testbed architecture placeholder: dual-motor PMSM, F28069M, CAN and real-time test.
+Signal-map placeholder: CAN and QEP channels.
+Measured-data placeholder: speed, torque and power.
+Efficiency-map placeholder: validation result.
+5 V / 1 A SMPS
+Flyback schematic placeholder: power stage and transformer path.
+Waveform placeholder: switching node and current.
+Bench placeholder: transformer and electronic load.
+Component-detail placeholder: BOM and magnetics notes.
+All media placeholders remain unpublished until an authorized image, plot, diagram or screenshot is supplied. Captions should identify source/provenance and, where applicable, test date, operating point, instrument and firmware revision.
+
 ABOUT HERDER ELEKTRONISCHE SYSTEMEN
 Engineering systems that can be understood, tested and trusted.
 Herder Elektronische Systemen is an independent engineering practice focused on embedded controls, power electronics, real-time testing, technical recovery and AI-assisted engineering software.
@@ -332,12 +353,6 @@ Preserve system context
 Make changes traceable
 Test the real integration
 Document uncertainty
-HOW THE PRACTICE WORKS
-Define the engineering boundary
-Inspect the existing system and evidence
-Reproduce current behavior
-Implement focused changes
-Validate and document the result
 GOOD-FIT ENGAGEMENTS
 Embedded or electromechanical prototypes
 Incomplete or inherited engineering projects
@@ -345,7 +360,7 @@ Firmware and hardware integration
 Test automation and instrumentation
 Design recovery and technical documentation
 Technically demanding early-stage product development
-06 / FOUNDER AND ENGINEERING LEAD
+05 / FOUNDER AND ENGINEERING LEAD
 Jonathan Hernandez
 Jonathan Hernandez is a mechanical engineer whose work developed through years of independently building laboratory capability around power electronics, embedded systems, electric machines, control systems and technical instrumentation.
 His experience includes permanent-magnet motor drives, field-oriented control, CAN-connected embedded platforms, real-time test systems, precision motion equipment, PCB design and bring-up, converter prototyping, automated data collection and recovery of complex engineering repositories.

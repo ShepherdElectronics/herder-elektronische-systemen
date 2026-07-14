@@ -12,6 +12,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 import zipfile
 
 
@@ -39,20 +40,31 @@ def page_paths() -> list[Path]:
     return [page for page in pages if page.name not in {"404.html"}]
 
 
-def export_page(chrome: Path, page: Path, destination: Path) -> None:
+def export_page(chrome: Path, page: Path, destination: Path, profile: Path) -> None:
     destination.parent.mkdir(parents=True, exist_ok=True)
     command = [
         str(chrome),
         "--headless=new",
         "--disable-gpu",
         "--no-sandbox",
+        f"--user-data-dir={profile}",
+        "--disable-extensions",
+        "--no-first-run",
+        "--disable-background-networking",
         "--no-pdf-header-footer",
         f"--print-to-pdf={destination}",
         page.as_uri(),
     ]
-    result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
-    if result.returncode != 0 or not destination.exists():
-        details = (result.stderr or result.stdout).strip()
+    process = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    try:
+        stdout, stderr = process.communicate(timeout=12)
+    except subprocess.TimeoutExpired:
+        subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"], capture_output=True, text=True)
+        if destination.exists():
+            return
+        raise RuntimeError(f"Chrome timed out while exporting {page.name}.")
+    if process.returncode != 0 or not destination.exists():
+        details = (stderr or stdout).strip()
         raise RuntimeError(f"Could not export {page.name}: {details}")
 
 
@@ -66,11 +78,12 @@ def main() -> int:
     for old_pdf in PDF_DIR.glob("*.pdf"):
         old_pdf.unlink()
 
-    for page in pages:
-        relative = page.relative_to(ROOT).with_suffix(".pdf")
-        destination = PDF_DIR / relative.name
-        print(f"Exporting {page.relative_to(ROOT)} -> {destination.relative_to(ROOT)}")
-        export_page(chrome, page, destination)
+    with tempfile.TemporaryDirectory(prefix="herder-pdf-") as profile:
+        for page in pages:
+            relative = page.relative_to(ROOT).with_suffix(".pdf")
+            destination = PDF_DIR / relative.name
+            print(f"Exporting {page.relative_to(ROOT)} -> {destination.relative_to(ROOT)}")
+            export_page(chrome, page, destination, Path(profile))
 
     with zipfile.ZipFile(ZIP_PATH, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for pdf in sorted(PDF_DIR.glob("*.pdf")):
