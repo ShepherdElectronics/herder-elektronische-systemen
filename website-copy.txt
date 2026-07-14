@@ -271,6 +271,32 @@ If you contact Herder Elektronische Systemen by email, the information you provi
 Public portfolio material
 Project details are handled confidentially. Public portfolio material is published only when authorized.
 
+SELECTED PROJECTS
+Systems built to be inspected.
+Representative work across embedded controls, power electronics, real-time testing and system integration. These are public technical projects, not completed client contracts.
+ESP32 Robotics Control Platform
+Sensor, actuator and control integration around an ESP32 platform with embedded C++ and MATLAB/Simulink connections.
+TI C2000 Actuator Controller
+F28069M command handling, explicit states, ePWM output, validation and fault-response behavior.
+TI Piccolo PMSM Dynamometer
+Dual-motor PMSM control, CAN communications, real-time testing and measured validation workflows.
+5 V / 1 A SMPS
+Offline flyback prototype with transformer work, schematics, waveforms and bench validation notes.
+VIEW PROJECT
+VIEW REPOSITORY
+
+ESP32 ROBOTICS CONTROL PLATFORM
+A hardware-backed robotics platform that brings sensing, operator input, motor drive and feedback control into one testable embedded system.
+TI C2000 ACTUATOR CONTROLLER
+A F28069M control demonstrator organized around explicit command handling, state behavior, PWM output, setpoint validation and fault response.
+TI PICCOLO PMSM DYNAMOMETER
+A dual-motor dynamometer built to develop, exercise and validate PMSM control across embedded firmware, CAN communications, real-time testing and measured torque-speed data.
+5 V / 1 A SMPS
+An offline flyback prototype documented from transformer winding and component selection through waveform capture and bench validation.
+Media placeholder - replace with authorized image or plot before publication.
+This is representative personal engineering work, public technical work or university laboratory work as identified on each page, not a completed client contract. Claims are limited to documented evidence.
+View repository
+
 ABOUT HERDER ELEKTRONISCHE SYSTEMEN
 Engineering systems that can be understood, tested and trusted.
 Herder Elektronische Systemen is an independent engineering practice focused on embedded controls, power electronics, real-time testing, technical recovery and AI-assisted engineering software.

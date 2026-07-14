@@ -46,3 +46,12 @@ Internal working document. Keep this ledger separate from public website copy. R
 - Allowed public claims: None yet.
 - Claims to avoid: Do not create public project claims, links, metrics, feature descriptions, client associations, or deployment statements until the project is adequately tested, documented, and cleared for publication.
 - Evidence source: Internal development work only; not public portfolio evidence.
+
+## First-party project pages
+
+The public site provides a concise first-party detail page for each repository listed above. These pages summarize documented evidence and link to the original repository; they do not reproduce large source files, complete instructional exercises, raw models, private paths, or restricted material. Media blocks marked as placeholders require an authorized image or plot before publication.
+
+- ESP32 Robotics Control Platform: `projects/esp32-robotics-control-platform.html`
+- TI C2000 Actuator Controller: `projects/ti-c2000-actuator-controller.html`
+- TI Piccolo dual-motor PMSM dynamometer: `projects/ti-piccolo-pmsm-dynamometer.html`
+- 5 V / 1 A SMPS: `projects/5v-1a-smps.html`
