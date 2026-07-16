@@ -493,3 +493,18 @@ FINAL CTA
 Bring the converter requirements.
 Share the topology, electrical targets, switching frequency, intended quantity and what has already been measured. Secure file exchange can follow the initial discussion.
 Discuss a transformer prototype
+
+SITE-WIDE SPECIALIST MAGNETICS PROMOTION
+CUSTOM MAGNETICS
+Direct navigation link to custom-high-frequency-transformers.html.
+
+SPECIALIST MAGNETICS
+Custom high-frequency transformer prototypes
+Transformer definition, winding construction, 3D modeling and bench evaluation for switch-mode power-supply development.
+Explore custom magnetics
+
+SELECTED WORK / SPECIALIST MAGNETICS
+Custom high-frequency transformer prototypes
+Transformer definition, winding construction, 3D modeling and measured bench evaluation for SMPS development.
+Core geometry / Custom winding / 3D models / Bench evaluation
+Explore custom magnetics
