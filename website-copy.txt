@@ -323,7 +323,7 @@ Engineering systems that can be understood, tested and trusted.
 Herder Elektronische Systemen is an independent engineering practice focused on embedded controls, power electronics, real-time testing, technical recovery and AI-assisted engineering software.
 01 / ORIGINS
 It began with a personal power-electronics laboratory.
-Herder Elektronische Systemen did not begin as a general consulting brand. It grew out of a personal engineering laboratory built by Jonathan Hernandez to work directly with power electronics, embedded control, electric machines, instrumentation and real-time testing.
+Herder Elektronische Systemen did not begin as a general consulting brand. It grew out of a personal engineering laboratory built by Jonathan Folkema to work directly with power electronics, embedded control, electric machines, instrumentation and real-time testing.
 The laboratory started with development boards, test equipment, power stages, motors, sensors and experimental circuits. Over time, those individual tools became a working environment for developing complete systems: hardware connected to firmware, firmware connected to controls, controls connected to instrumentation, and measurements connected back to design decisions.
 That environment shaped the way the firm works today. Problems are not treated as isolated software, electrical or mechanical tasks. They are followed across the entire technical chain until the physical behavior, implementation and evidence agree.
 As the projects grew, another difficulty became impossible to ignore. Engineering work was often scattered across source files, models, test data, schematics, notes, archived revisions and incomplete documentation. Recovering the reasoning behind a project could become as difficult as building the project itself.
@@ -361,8 +361,8 @@ Test automation and instrumentation
 Design recovery and technical documentation
 Technically demanding early-stage product development
 05 / FOUNDER AND ENGINEERING LEAD
-Jonathan Hernandez
-Jonathan Hernandez is a mechanical engineer whose work developed through years of independently building laboratory capability around power electronics, embedded systems, electric machines, control systems and technical instrumentation.
+Jonathan Folkema
+Jonathan Folkema is a mechanical engineer whose work developed through years of independently building laboratory capability around power electronics, embedded systems, electric machines, control systems and technical instrumentation.
 His experience includes permanent-magnet motor drives, field-oriented control, CAN-connected embedded platforms, real-time test systems, precision motion equipment, PCB design and bring-up, converter prototyping, automated data collection and recovery of complex engineering repositories.
 The distinguishing feature of his work is not any one discipline. It is the ability to move between them.
 A control problem may require inspecting the power stage. A firmware problem may originate in sensing or timing. A weak test result may come from instrumentation rather than the design itself. An apparently complete project may still be unusable because its files, assumptions and evidence are disconnected.
