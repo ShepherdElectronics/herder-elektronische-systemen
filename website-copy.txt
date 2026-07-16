@@ -388,3 +388,108 @@ Engineering work is defined by an agreed scope, assumptions, deliverables, respo
 Recommendations depend on available requirements, hardware, software, measurements and constraints.
 Public projects are representative technical work and are not necessarily client engagements. They are not guarantees of a particular result, certification, production deployment or manufacturing capacity.
 Project details are handled confidentially. Public portfolio material is published only when authorized.
+
+
+CUSTOM HIGH-FREQUENCY TRANSFORMERS
+Custom magnetics / SMPS development
+Custom high-frequency transformers built for the next bench test.
+Herder Elektronische Systemen develops custom transformer prototypes for switch-mode power supplies, connecting electrical requirements, core selection, winding construction, 3D documentation and measured bench behavior.
+FLYBACK / SMPS MAGNETICS / CUSTOM WINDING / 3D MODELING / PROTOTYPE VALIDATION
+Discuss a transformer prototype
+View the 5 V / 1 A SMPS project
+
+WHAT CAN BE DEVELOPED
+Magnetics shaped around the converter.
+Flyback transformer prototypes
+High-frequency isolation transformers
+Custom turns ratios
+Primary, secondary and auxiliary windings
+Gapped ferrite-core prototypes
+RM, EE, EFD, ETD and other practical ferrite geometries where suitable
+Hand-wound engineering samples
+Small prototype quantities
+Revisions of existing transformer designs
+Replacement prototypes where sufficient source information is available
+Feasibility depends on topology, input range, output requirements, switching frequency, isolation needs, core geometry, winding window, thermal limits, safety expectations and component availability.
+
+CUSTOMER INPUTS
+Bring the electrical boundary.
+Converter topology
+Input-voltage range
+Output voltage and current
+Switching frequency
+Controller or primary-side IC
+Target power
+Number of windings
+Auxiliary-bias requirements
+Isolation requirement
+Core or size constraints
+Expected duty cycle
+Existing schematic
+Existing transformer data
+Target quantity
+Intended environment
+Safety or qualification expectations
+Do not send sensitive design files through the initial email. Secure file exchange can be arranged after the first discussion.
+
+ENGINEERING WORKFLOW
+From requirements to a reviewable prototype.
+1. Define the electrical boundary+�u���T Confirm topology, voltage, current, frequency, duty cycle and isolation needs.
+2. Select the magnetic structure+�u���T Review core material, geometry, effective area, winding window and gap approach.
+3. Develop the winding construction"��y��y� Define turns, wire, winding order, insulation assumptions, polarity and pin assignment.
+4. Model and document the assembly �w^~)�t Produce construction drawings, winding-stack visuals and 3D reference models where included.
+5. Wind and inspect the prototype �w^~)�t Build the engineering sample and record construction details.
+6. Measure and revise+�u���T Review inductance, DCR, leakage, switching behavior and converter-level observations where test access permits.
+
+3D TRANSFORMER MODELING
+3D models that make the construction reviewable.
+Parametric models can make transformer construction, pin orientation, winding space and mechanical integration easier to inspect before or after the first physical build.
+Parametric modeling of cores, bobbins, pins and assemblies
+Simplified winding-layer models
+Insulation-stack visualization
+Core-gap representation
+Winding-window utilization views
+Exploded assembly views
+Pin numbering and polarity orientation
+PCB-mounted clearance review
+Enclosure and neighboring-component clearance review
+Dimensioned reference drawings
+Technical renders for documentation
+Potential CAD deliverables: native parametric model where agreed, STEP export, dimensioned drawing, exploded view, winding-stack illustration, pinout and polarity diagram, PCB clearance view.
+The 3D model documents physical construction and integration. It does not by itself validate electromagnetic performance, insulation coordination, thermal behavior, regulatory compliance, manufacturability or production repeatability.
+Media placeholders: complete transformer assembly; exploded core and bobbin view; winding and insulation stack; PCB-mounted clearance view; dimensioned reference drawing.
+
+PROTOTYPE DELIVERABLES
+A prototype with enough information to continue.
+Wound transformer prototype
+Winding specification
+Turns table
+Wire and insulation notes
+Core and gap information
+Pinout and polarity
+Inductance measurements
+DCR measurements
+Leakage-inductance observations
+Construction notes
+3D construction model where included
+Bench-test notes
+Revision recommendations
+Exact deliverables depend on the agreed scope, available test access and whether the request covers transformer construction only or converter-level evaluation.
+
+EVIDENCE AND VALIDATION
+Measurements with the test conditions attached.
+Media placeholders: transformer photograph; winding diagram; core and gap detail; schematic excerpt; inductance measurement; DCR measurement; leakage-inductance measurement; switching waveform; load-test result; 3D assembly model.
+Every evidence block should identify source or provenance, instrument, test date, operating condition and prototype revision. No values, plots, dimensions, photographs or validation claims are invented here.
+Prototype magnetics are engineering samples. Suitability for production, reinforced insulation, regulatory compliance, long-term reliability, thermal performance and manufacturing repeatability requires separate analysis, testing and qualification.
+
+RELATED WORK
+5 V / 1 A SMPS
+Offline flyback prototype with custom transformer work, schematics, waveform captures and bench-validation notes.
+View project
+View repository
+Power electronics prototyping
+
+FINAL CTA
+Bring the converter requirements.
+Share the topology, electrical targets, switching frequency, intended quantity and what has already been measured. Secure file exchange can follow the initial discussion.
+Discuss a transformer prototype

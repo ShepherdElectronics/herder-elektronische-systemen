@@ -59,3 +59,11 @@ The public site provides a concise first-party detail page for each repository l
 ## Media publication workflow
 
 Project pages use reusable, project-specific media galleries. Every figure remains a labeled placeholder until an authorized image, diagram, plot, waveform or screenshot is supplied. Before publication, add alt text, a concise caption, provenance, and applicable technical metadata such as test date, operating point, instrument and firmware revision. Do not add metrics or visual evidence that cannot be traced to the public project material and its publication rights.
+
+
+## Custom high-frequency transformer prototyping service
+
+- First-party service page: custom-high-frequency-transformers.html`r
+- Scope: SMPS transformer prototypes, custom winding, 3D construction documentation and measured bench evaluation.
+- Evidence boundary: all transformer media blocks remain placeholders until an authorized artifact is supplied with provenance, instrument, test date, operating condition and prototype revision.
+- Claims to avoid: Do not imply production suitability, reinforced insulation, regulatory compliance, long-term reliability, thermal performance or manufacturing repeatability without separate analysis, testing and qualification.
