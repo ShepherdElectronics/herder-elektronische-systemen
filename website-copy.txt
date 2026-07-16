@@ -312,11 +312,16 @@ Signal-map placeholder: CAN and QEP channels.
 Measured-data placeholder: speed, torque and power.
 Efficiency-map placeholder: validation result.
 5 V / 1 A SMPS
-Flyback schematic placeholder: power stage and transformer path.
-Waveform placeholder: switching node and current.
-Bench placeholder: transformer and electronic load.
-Component-detail placeholder: BOM and magnetics notes.
-All media placeholders remain unpublished until an authorized image, plot, diagram or screenshot is supplied. Captions should identify source/provenance and, where applicable, test date, operating point, instrument and firmware revision.
+CURATED EVIDENCE GALLERY
+Switching-drain waveform photograph from the public repository; source file Drain.JPEG.
+Gapped transformer and Kapton insulation construction; source file Kapton_tape_gapped_transformer.JPEG.
+Transformer pin and termination orientation; source file Transformer_Pin.JPEG.
+Primary-winding inductance measurement setup/readout; source file Primary_Inductance.JPEG.
+Leakage-inductance measurement setup/readout; source file Leakage_Inductance.JPEG.
+72-turn winding resistance measurement setup/readout; source file 72Turn_Resistance.JPEG.
+The gallery uses existing repository photographs only. Captions identify the documented subject and source file; no values or validation claims are inferred beyond what the photographs show.
+Rejected from the main gallery: distant/unpopulated PCB views, redundant dead-bug photographs and related tooling photographs.
+Missing evidence worth retaking: a tight populated-PCB photograph, a complete assembled-transformer photograph, a complete bench setup and a readable regulated-output-under-load capture.
 
 ABOUT HERDER ELEKTRONISCHE SYSTEMEN
 Engineering systems that can be understood, tested and trusted.
