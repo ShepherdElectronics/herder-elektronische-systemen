@@ -1,4 +1,4 @@
-﻿HERDER ELEKTRONISCHE SYSTEMEN
+HERDER ELEKTRONISCHE SYSTEMEN
 
 SITE NAVIGATION
 Services
@@ -63,7 +63,7 @@ SELECTED WORK
 
 Representative technical projects.
 
-The projects below show the practice in working hardware, firmware, controls, measurement and documentation. Portfolio examples include personal engineering work, public technical projects and university laboratory work. They are identified by source and are not presented as completed private-client engagements.
+The projects below show the practice in working hardware, firmware, controls, measurement and documentation. Portfolio examples include personal engineering work, public technical projects and research test-facility work. They are identified by source and are not presented as completed private-client engagements.
 
 ESP32 Robotics Control Platform
 
@@ -99,11 +99,11 @@ FEATURED PUBLIC WORK
 
 Controls at testbed scale.
 
-PUBLIC UNIVERSITY RESEARCH AND ENGINEERING WORK
+PUBLIC RESEARCH AND ENGINEERING WORK
 
 TI Piccolo dual-motor PMSM dynamometer
 
-A dual-motor dynamometer developed to exercise and validate permanent-magnet synchronous motor control across embedded firmware, encoder feedback, CAN communications, real-time testing and measured torque-speed data.
+A dual-motor dynamometer developed to validate permanent-magnet synchronous motor control across embedded firmware, encoder feedback, CAN communications, real-time testing and measured torque-speed data.
 
 Jonathan's contribution
 
@@ -115,7 +115,7 @@ The public repository includes architecture notes, hardware-integration records,
 
 Publication boundary
 
-This work was completed in a university laboratory setting. It is not presented as a private-client engagement or an exclusively owned product. The site links to the public repository without reproducing large source files or models.
+This work was completed in a research test facility. It is not presented as a private-client engagement or an exclusively owned product. The site links to the public repository without reproducing large source files or models.
 
 View public repository
 
@@ -737,7 +737,7 @@ View public repository
 
 TI PICCOLO PMSM DYNAMOMETER
 
-A dual-motor dynamometer developed to exercise and validate PMSM control across embedded firmware, encoder feedback, CAN communications, real-time testing and measured torque-speed data.
+A dual-motor dynamometer developed to validate PMSM control across embedded firmware, encoder feedback, CAN communications, real-time testing and measured torque-speed data.
 
 SYSTEM SCOPE
 
@@ -760,23 +760,21 @@ Validation plots
 
 PHASE SENSING, REGENERATION AND LONG-TERM TESTABILITY
 
-The phase-sense network was documented to preserve the dynamometer’s operating knowledge and make the stations easier to maintain, troubleshoot and continue through future laboratory use.
+s’s operating knowledge and support future maintenance and troubleshooting.
 
-Each BOOSTXL-DRV8305EVM motor phase is sensed individually relative to ground. The network uses a 62.0 kΩ upper resistor and a 4.99 kΩ lower resistor, giving a divider ratio of approximately 0.07449 V/V. With a 24 V DC bus, the expected range at each VSEN_A, VSEN_B or VSEN_C input is therefore approximately 0 to 1.79 V.
+Each BOOSTXL-DRV8305EVM motor phase is sensed relative to ground through a 62.0 kΩ and 4.99 kΩ divider. Its ratio is approximately 0.07449 V/V, giving an expected VSEN_A, VSEN_B or VSEN_C range of 0 to 1.79 V from a 24 V DC bus.
 
-A 0.1 µF capacitor at each VSEN node forms a low-pass filter with the divider’s approximate 4.62 kΩ Thevenin resistance. The resulting time constant is approximately 462 µs, with a cutoff frequency near 344 Hz. Each VSEN signal should therefore appear as a filtered representation of the phase-to-ground switching behavior rather than as a sharp PWM waveform.
+A 0.1 µF capacitor at each VSEN node forms a low-pass filter with the divider’s approximate 4.62 kΩ Thevenin resistance. The resulting time constant is about 462 µs and the cutoff frequency is approximately 344 Hz. The VSEN signals therefore represent filtered phase-to-ground switching behavior rather than sharp PWM waveforms.
 
-The board also uses D2, an onsemi NUP4201MR6T1G low-capacitance TVS/ESD protection array, on the low-voltage sensing side. Its purpose is to protect the VSEN and control electronics from electrostatic discharge and short transient overvoltage events. It does not absorb sustained regenerated energy, and it is not a brake resistor, DC-bus clamp or energy-dissipation element.
+D2, an onsemi NUP4201MR6T1G TVS/ESD array, protects the low-voltage sensing electronics from electrostatic discharge and brief overvoltage transients. It does not absorb sustained regenerated energy or act as a brake resistor, DC-bus clamp or dump circuit.
 
-That distinction is essential in a dual-motor dynamometer. During regenerative operation, the load motor acts as a generator and returns electrical energy through the inverter to the shared DC bus. If the power supply cannot absorb that returned energy, the bus voltage can rise even while the individual VSEN inputs remain protected from short transients.
+During regenerative operation, the load motor returns energy through the inverter to the shared DC bus. If the supply cannot absorb that energy, the bus voltage can rise even though the VSEN inputs remain protected.
 
-Regenerated energy must therefore be managed separately. Depending on the final station architecture, that may require a regenerative supply, a braking resistor with a controlled dump circuit, a dedicated DC-bus clamp, temporary energy storage or operating limits that keep the bus within its safe range.
+Regenerated energy must therefore be managed separately through a regenerative supply, controlled braking resistor, DC-bus clamp, temporary storage or operating limits appropriate to the final station architecture.
 
-The phase-sense network supports measurement and diagnosis. The TVS array protects the low-voltage sensing electronics. Neither one replaces the hardware required to manage power returned to the DC bus.
+The phase-sense network supports measurement and diagnosis; the TVS array protects the sensing electronics; neither manages power returned to the DC bus.
 
-Documenting these separate functions gives future students and maintainers a basis for distinguishing among sensing faults, ADC-range problems, transient events and genuine DC-bus overvoltage caused by regeneration.
-
-The broader purpose is long-term laboratory continuity: preserving the assumptions, expected measurements and protection boundaries needed to keep the dynamometer stations understandable, repairable and repeatable rather than allowing that knowledge to remain only in source code or institutional memory.
+Recording these boundaries helps future users distinguish sensing faults, ADC-range problems and transient events from genuine regeneration-driven bus overvoltage. It also preserves the assumptions and expected measurements needed to keep the dynamometer understandable, repairable and repeatable.
 
 BOOSTXL phase-sense and protection calculation showing the 62.0 kÎ© / 4.99 kÎ© divider, 0.1 ÂµF filtering, expected 0â€“1.79 V per-phase VSEN range at a 24 V bus, and the separate role of the NUP4201MR6T1G TVS/ESD array. The TVS protects low-voltage sensing electronics from transients; regenerated motor energy must be managed separately at the DC bus.
 
@@ -784,7 +782,7 @@ VSEN_A, VSEN_B and VSEN_C are individual phase-to-ground measurements. They are 
 
 PUBLICATION BOUNDARY
 
-This project was completed in a university laboratory setting. It is presented as public university research and engineering work, not as a private-client engagement or an exclusively owned product.
+This project was completed in a research test facility. It is presented as public research and engineering work, not as a private-client engagement or an exclusively owned product.
 
 View public repository
 
@@ -835,13 +833,13 @@ Herder Elektronische Systemen is an independent engineering practice focused on 
 
 01 / ORIGINS
 
-A practice built from laboratory work.
+A practice built from engineering test work.
 
-Herder Elektronische Systemen grew from a working engineering laboratory used for power electronics, embedded control, electric machines, instrumentation and real-time testing.
+Herder Elektronische Systemen grew from a working engineering test facility used for power electronics, embedded control, electric machines, instrumentation and real-time testing.
 
 Development boards, power stages, motors, sensors, test equipment and experimental circuits became an environment for building complete systems. Hardware was connected to firmware, firmware to controls, controls to instrumentation and measurements back to design decisions.
 
-That laboratory work established the practice's central method: follow the technical problem across the full system until the implementation, physical behavior and evidence agree.
+That engineering test work established the practice's central method: follow the technical problem across the full system until the implementation, physical behavior and evidence agree.
 
 As projects became larger, another problem became equally important. Engineering context was often scattered across source files, models, test data, schematics, archived revisions and incomplete documentation. Recovering the reasoning behind a project could become as difficult as building it.
 
@@ -1061,7 +1059,7 @@ Review core material, geometry, effective area, winding window and gap approach.
 
 3. Develop the winding construction
 
-Define turns, wire, winding order, insulation assumptions, polarity and pin assignment.
+Define turns, wire, winding order, insulation assumptions, polarity and pin mapping.
 
 4. Model and document the assembly
 
@@ -1080,7 +1078,7 @@ Review inductance, winding resistance, leakage inductance, switching behavior an
 
 3D models that make the construction reviewable.
 
-Parametric models can make core geometry, bobbin orientation, winding space, pin assignment and mechanical integration easier to inspect before or after the first physical build.
+Parametric models can make core geometry, bobbin orientation, winding space, pin mapping and mechanical integration easier to inspect before or after the first physical build.
 
 Potential model content
 
@@ -1205,7 +1203,7 @@ A project discussion or portfolio example does not create an engagement by itsel
 
 Recommendations depend on the available requirements, hardware, software, measurements and constraints.
 
-Portfolio examples include personal engineering work, public technical projects and university laboratory work. They are identified by source and are not presented as completed private-client engagements.
+Portfolio examples include personal engineering work, public technical projects and research test-facility work. They are identified by source and are not presented as completed private-client engagements.
 
 Portfolio examples are not guarantees of certification, production deployment, manufacturing capacity or a particular technical result.
 

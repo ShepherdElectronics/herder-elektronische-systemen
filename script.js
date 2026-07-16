@@ -18,7 +18,7 @@ if (nav && !nav.querySelector('a[href$="projects.html"]')) {
 const projectRegistry = {
   'https://github.com/ShepherdElectronics/esp32-robotics-control-platform': 'projects/esp32-robotics-control-platform.html',
   'https://github.com/ShepherdElectronics/SafetyCritical_Actuator_F28069M': 'projects/ti-c2000-actuator-controller.html',
-  'https://github.com/ShepherdElectronics/Labs_Dyno_TI-Piccolo-Motor-Drive-Testbed': 'projects/ti-piccolo-pmsm-dynamometer.html',
+  'https://github.com/ShepherdElectronics/ti-piccolo-pmsm-dynamometer': 'projects/ti-piccolo-pmsm-dynamometer.html',
   'https://github.com/ShepherdElectronics/5V-1A-SMPS': 'projects/5v-1a-smps.html'
 };
 if (!document.body.classList.contains('project-page')) {

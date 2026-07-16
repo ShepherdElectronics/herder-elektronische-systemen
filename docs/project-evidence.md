@@ -32,10 +32,10 @@ Internal working document. Keep this ledger separate from public website copy. R
 ## TI Piccolo Motor Drive Testbed
 
 - Project name: TI Piccolo dual-motor PMSM dynamometer
-- Repository URL: https://github.com/ShepherdElectronics/Labs_Dyno_TI-Piccolo-Motor-Drive-Testbed
-- Context: University/research and collaborative laboratory work with Jonathan's documented contribution
-- Allowed public claims: Public university research and engineering work completed in a university laboratory setting, including dual-motor PMSM dynamometer integration, TI C2000 F28069M control, field-oriented control, QEP encoder integration, SCI-to-CAN migration, Speedgoat/MATLAB real-time testing where documented, efficiency mapping, and validation workflows.
-- Claims to avoid: Do not present this as a private client engagement or exclusively owned product. Do not publish complete student exercises, instructional answer-key material, raw Simulink models, internal notes, sponsor material, credentials, private paths, or unverified measurements.
+- Repository URL: https://github.com/ShepherdElectronics/ti-piccolo-pmsm-dynamometer
+- Context: Public research and engineering work with Jonathan's documented contribution
+- Allowed public claims: Public research and engineering work covering dual-motor PMSM dynamometer integration, TI C2000 F28069M control, field-oriented control, QEP encoder integration, SCI-to-CAN migration, Speedgoat/MATLAB real-time testing where documented, efficiency mapping, and validation workflows.
+- Claims to avoid: Do not present this as a private client engagement or exclusively owned product. Do not publish complete worked examples, raw Simulink models, internal notes, sponsor material, credentials, private paths, or unverified measurements.
 - Evidence source: Public repository README, architecture documentation, hardware integration notes, MATLAB/Python processing, measured plots/data, and authorized project material. Check the repository license before reproducing substantial content.
 - Supporting calculation reference: [engineering-calculations/README.md](engineering-calculations/README.md), including the sanitized workbook, PDF export and full-resolution phase-sense preview.
 
@@ -50,7 +50,7 @@ Internal working document. Keep this ledger separate from public website copy. R
 
 ## First-party project pages
 
-The public site provides a concise first-party detail page for each repository listed above. These pages summarize documented evidence and link to the original repository; they do not reproduce large source files, complete instructional exercises, raw models, private paths, or restricted material. Media blocks marked as placeholders require an authorized image or plot before publication.
+The public site provides a concise first-party detail page for each repository listed above. These pages summarize documented evidence and link to the original repository; they do not reproduce large source files, complete worked examples, raw models, private paths, or restricted material. Media blocks marked as placeholders require an authorized image or plot before publication.
 
 - ESP32 Robotics Control Platform: `projects/esp32-robotics-control-platform.html`
 - TI C2000 Actuator Controller: `projects/ti-c2000-actuator-controller.html`
@@ -61,10 +61,9 @@ The public site provides a concise first-party detail page for each repository l
 
 Project pages use reusable, project-specific media galleries. Every figure remains a labeled placeholder until an authorized image, diagram, plot, waveform or screenshot is supplied. Before publication, add alt text, a concise caption, provenance, and applicable technical metadata such as test date, operating point, instrument and firmware revision. Do not add metrics or visual evidence that cannot be traced to the public project material and its publication rights.
 
-
 ## Custom high-frequency transformer prototyping service
 
-- First-party service page: custom-high-frequency-transformers.html`r
+- First-party service page: [custom-high-frequency-transformers.html](../custom-high-frequency-transformers.html)
 - Scope: SMPS transformer prototypes, custom winding, 3D construction documentation and measured bench evaluation.
 - Evidence boundary: all transformer media blocks remain placeholders until an authorized artifact is supplied with provenance, instrument, test date, operating condition and prototype revision.
 - Claims to avoid: Do not imply production suitability, reinforced insulation, regulatory compliance, long-term reliability, thermal performance or manufacturing repeatability without separate analysis, testing and qualification.
