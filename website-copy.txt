@@ -1,4 +1,4 @@
-HERDER ELEKTRONISCHE SYSTEMEN
+﻿HERDER ELEKTRONISCHE SYSTEMEN
 
 SITE NAVIGATION
 Services
@@ -152,7 +152,7 @@ Embedded controls that behave on real hardware.
 
 Firmware architecture, interfaces, timing and fault behavior developed around the physical system the code must control.
 
-FIRMWARE · MOTOR CONTROL · CAN · REAL-TIME SYSTEMS
+FIRMWARE Â· MOTOR CONTROL Â· CAN Â· REAL-TIME SYSTEMS
 
 
 PROBLEMS THIS ADDRESSES
@@ -189,7 +189,7 @@ Hardware interfaces
 Sensor and actuator interfaces
 PWM and ADC integration
 Encoder feedback
-CAN, UART, SPI and I²C
+CAN, UART, SPI and IÂ²C
 Pin, signal and timing definitions
 
 Control and safety behavior
@@ -265,7 +265,7 @@ Power electronics developed on the bench.
 
 Converter architecture, magnetics, component choices, controlled bring-up and measured switching behavior treated as one engineering problem.
 
-CONVERTERS · PCB PROTOTYPING · BRING-UP · VALIDATION
+CONVERTERS Â· PCB PROTOTYPING Â· BRING-UP Â· VALIDATION
 
 
 PROBLEMS THIS ADDRESSES
@@ -369,7 +369,7 @@ Tests worth repeating.
 
 Instrument control, structured data and analysis developed together so a technical result can be reproduced, reviewed and used to choose the next test.
 
-HIL · AUTOMATION · INSTRUMENTATION · DATA PIPELINES
+HIL Â· AUTOMATION Â· INSTRUMENTATION Â· DATA PIPELINES
 
 
 PROBLEMS THIS ADDRESSES
@@ -484,7 +484,7 @@ Make the system legible again.
 
 Hardware, firmware, dependencies, communications and evidence traced until an incomplete or inherited prototype has a reviewable path forward.
 
-REPOSITORY ANALYSIS · EVIDENCE RECOVERY · INTEGRATION · TECHNICAL DOCUMENTATION
+REPOSITORY ANALYSIS Â· EVIDENCE RECOVERY Â· INTEGRATION Â· TECHNICAL DOCUMENTATION
 
 
 PROBLEMS THIS ADDRESSES
@@ -760,25 +760,25 @@ Validation plots
 
 PHASE SENSING, REGENERATION AND LONG-TERM TESTABILITY
 
-The phase-sense network was documented to make the dynamometer easier to maintain, troubleshoot and operate over years of laboratory use.
+The phase-sense network was documented to preserve the dynamometer’s operating knowledge and make the stations easier to maintain, troubleshoot and continue through future laboratory use.
 
-Each BOOSTXL-DRV8305EVM motor phase is measured individually relative to ground. The schematic uses a 62.0 kΩ upper resistor and a 4.99 kΩ lower resistor, producing a divider ratio of approximately 0.07449 V/V. With a 24 V DC bus, the expected range at each individual VSEN_A, VSEN_B or VSEN_C input is therefore approximately 0 to 1.79 V.
+Each BOOSTXL-DRV8305EVM motor phase is sensed individually relative to ground. The network uses a 62.0 kΩ upper resistor and a 4.99 kΩ lower resistor, giving a divider ratio of approximately 0.07449 V/V. With a 24 V DC bus, the expected range at each VSEN_A, VSEN_B or VSEN_C input is therefore approximately 0 to 1.79 V.
 
-A 0.1 µF capacitor at each VSEN node forms a low-pass filter with the divider’s approximate 4.62 kΩ Thevenin resistance. The resulting time constant is approximately 462 µs and the cutoff frequency is approximately 344 Hz. The measured VSEN signal should therefore appear as a filtered representation of the phase-to-ground switching behavior rather than as a sharp PWM waveform.
+A 0.1 µF capacitor at each VSEN node forms a low-pass filter with the divider’s approximate 4.62 kΩ Thevenin resistance. The resulting time constant is approximately 462 µs, with a cutoff frequency near 344 Hz. Each VSEN signal should therefore appear as a filtered representation of the phase-to-ground switching behavior rather than as a sharp PWM waveform.
 
-The board also uses D2, an onsemi NUP4201MR6T1G low-capacitance TVS/ESD protection array, on the low-voltage sensing side. Its role is to protect the VSEN and control electronics from electrostatic discharge and transient overvoltage. It does not absorb sustained regenerative energy and it is not a brake resistor, DC-bus clamp or energy-dissipation element.
+The board also uses D2, an onsemi NUP4201MR6T1G low-capacitance TVS/ESD protection array, on the low-voltage sensing side. Its purpose is to protect the VSEN and control electronics from electrostatic discharge and short transient overvoltage events. It does not absorb sustained regenerated energy, and it is not a brake resistor, DC-bus clamp or energy-dissipation element.
 
-That distinction matters in a dual-motor dynamometer. During regenerative operation, the load motor acts as a generator and returns electrical energy through the inverter to the shared DC bus. If the supply cannot accept that returned energy, the bus voltage can rise even though the individual VSEN inputs remain protected against short transients.
+That distinction is essential in a dual-motor dynamometer. During regenerative operation, the load motor acts as a generator and returns electrical energy through the inverter to the shared DC bus. If the power supply cannot absorb that returned energy, the bus voltage can rise even while the individual VSEN inputs remain protected from short transients.
 
-The dynamometer therefore needs a separate regenerative-energy strategy. Depending on the final station architecture, that may include a regenerative power supply, a braking resistor and controlled dump circuit, a dedicated DC-bus clamp, energy storage, or operating limits that prevent the bus from exceeding its safe range.
+Regenerated energy must therefore be managed separately. Depending on the final station architecture, that may require a regenerative supply, a braking resistor with a controlled dump circuit, a dedicated DC-bus clamp, temporary energy storage or operating limits that keep the bus within its safe range.
 
-The sensing network helps measure and diagnose the phase behavior. The TVS array protects sensitive signal electronics. Neither one replaces the hardware required to manage regenerated power.
+The phase-sense network supports measurement and diagnosis. The TVS array protects the low-voltage sensing electronics. Neither one replaces the hardware required to manage power returned to the DC bus.
 
-Documenting these boundaries gives future students and maintainers a reference for distinguishing between a sensing fault, an ADC-range problem, a short transient and a genuine DC-bus overvoltage caused by regenerated energy.
+Documenting these separate functions gives future students and maintainers a basis for distinguishing among sensing faults, ADC-range problems, transient events and genuine DC-bus overvoltage caused by regeneration.
 
-This documentation supports the larger goal of keeping the dynamometer stations understandable, repairable and repeatable through future laboratory courses rather than allowing critical hardware assumptions to remain only in source code or institutional memory.
+The broader purpose is long-term laboratory continuity: preserving the assumptions, expected measurements and protection boundaries needed to keep the dynamometer stations understandable, repairable and repeatable rather than allowing that knowledge to remain only in source code or institutional memory.
 
-BOOSTXL phase-sense and protection calculation showing the 62.0 kΩ / 4.99 kΩ divider, 0.1 µF filtering, expected 0–1.79 V per-phase VSEN range at a 24 V bus, and the separate role of the NUP4201MR6T1G TVS/ESD array. The TVS protects low-voltage sensing electronics from transients; regenerated motor energy must be managed separately at the DC bus.
+BOOSTXL phase-sense and protection calculation showing the 62.0 kÎ© / 4.99 kÎ© divider, 0.1 ÂµF filtering, expected 0â€“1.79 V per-phase VSEN range at a 24 V bus, and the separate role of the NUP4201MR6T1G TVS/ESD array. The TVS protects low-voltage sensing electronics from transients; regenerated motor energy must be managed separately at the DC bus.
 
 VSEN_A, VSEN_B and VSEN_C are individual phase-to-ground measurements. They are not direct phase-to-phase voltage signals.
 
@@ -889,7 +889,7 @@ Communications
 CAN
 UART
 SPI
-I²C
+IÂ²C
 
 Modeling and analysis
 
@@ -999,7 +999,7 @@ Custom high-frequency transformer prototypes built for the next bench test.
 
 Herder Elektronische Systemen develops transformer prototypes for switch-mode power supplies by connecting electrical requirements, core selection, winding construction, 3D documentation and measured bench behavior.
 
-FLYBACK · SMPS MAGNETICS · CUSTOM WINDING · 3D MODELING · PROTOTYPE VALIDATION
+FLYBACK Â· SMPS MAGNETICS Â· CUSTOM WINDING Â· 3D MODELING Â· PROTOTYPE VALIDATION
 
 Discuss a transformer prototype
 View the 5 V / 1 A SMPS project
