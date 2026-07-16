@@ -758,7 +758,7 @@ Measured speed, torque and power data
 Efficiency maps
 Validation plots
 
-PHASE-SENSE PROTECTION AND LONG-TERM TESTABILITY
+PHASE SENSING, REGENERATION AND LONG-TERM TESTABILITY
 
 The phase-sense network was documented to make the dynamometer easier to maintain, troubleshoot and operate over years of laboratory use.
 
@@ -766,13 +766,19 @@ Each BOOSTXL-DRV8305EVM motor phase is measured individually relative to ground.
 
 A 0.1 µF capacitor at each VSEN node forms a low-pass filter with the divider’s approximate 4.62 kΩ Thevenin resistance. The resulting time constant is approximately 462 µs and the cutoff frequency is approximately 344 Hz. The measured VSEN signal should therefore appear as a filtered representation of the phase-to-ground switching behavior rather than as a sharp PWM waveform.
 
-The board also uses D2, an onsemi NUP4201MR6T1G low-capacitance TVS diode array, on the low-voltage sensing side. The device is intended to protect sensitive electronics from electrostatic-discharge events and transient overvoltage conditions. It is not a regenerative braking clamp and does not remove regenerated energy from the DC bus.
+The board also uses D2, an onsemi NUP4201MR6T1G low-capacitance TVS/ESD protection array, on the low-voltage sensing side. Its role is to protect the VSEN and control electronics from electrostatic discharge and transient overvoltage. It does not absorb sustained regenerative energy and it is not a brake resistor, DC-bus clamp or energy-dissipation element.
 
-Recording the expected divider output, filtering behavior and protection-device role gives future students and maintainers a reference for checking the sensing network before replacing hardware or changing firmware. Unexpected readings can be separated into likely bus-voltage, wiring, sensing, protection-device, ADC-reference or test-point problems.
+That distinction matters in a dual-motor dynamometer. During regenerative operation, the load motor acts as a generator and returns electrical energy through the inverter to the shared DC bus. If the supply cannot accept that returned energy, the bus voltage can rise even though the individual VSEN inputs remain protected against short transients.
+
+The dynamometer therefore needs a separate regenerative-energy strategy. Depending on the final station architecture, that may include a regenerative power supply, a braking resistor and controlled dump circuit, a dedicated DC-bus clamp, energy storage, or operating limits that prevent the bus from exceeding its safe range.
+
+The sensing network helps measure and diagnose the phase behavior. The TVS array protects sensitive signal electronics. Neither one replaces the hardware required to manage regenerated power.
+
+Documenting these boundaries gives future students and maintainers a reference for distinguishing between a sensing fault, an ADC-range problem, a short transient and a genuine DC-bus overvoltage caused by regenerated energy.
 
 This documentation supports the larger goal of keeping the dynamometer stations understandable, repairable and repeatable through future laboratory courses rather than allowing critical hardware assumptions to remain only in source code or institutional memory.
 
-BOOSTXL phase-sense network calculation. Expected single-ended VSEN behavior for the 62.0 kΩ / 4.99 kΩ divider and 0.1 µF filter, including the normal 0–1.79 V per-phase range at a 24 V DC bus and the protective role of D2, the NUP4201MR6T1G TVS/ESD array.
+BOOSTXL phase-sense and protection calculation showing the 62.0 kΩ / 4.99 kΩ divider, 0.1 µF filtering, expected 0–1.79 V per-phase VSEN range at a 24 V bus, and the separate role of the NUP4201MR6T1G TVS/ESD array. The TVS protects low-voltage sensing electronics from transients; regenerated motor energy must be managed separately at the DC bus.
 
 VSEN_A, VSEN_B and VSEN_C are individual phase-to-ground measurements. They are not direct phase-to-phase voltage signals.
 
