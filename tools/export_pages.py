@@ -4,7 +4,7 @@ Usage:
     python tools/export_pages.py
 
 The generated files are written to output/pdf/ and output/
-herder-elektronische-systemen-pages.zip. They are local review artifacts and
+herder-elektronische-systemen-pages.zip. The ZIP contains every page PDF and the complete website-copy.txt source. They are local review artifacts and
 are intentionally not part of the website deployment.
 """
 
@@ -19,6 +19,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 PDF_DIR = ROOT / "output" / "pdf"
 ZIP_PATH = ROOT / "output" / "herder-elektronische-systemen-pages.zip"
+COPY_PATH = ROOT / "website-copy.txt"
 
 
 def find_chrome() -> Path:
@@ -89,6 +90,7 @@ def main() -> int:
     with zipfile.ZipFile(ZIP_PATH, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for pdf in sorted(PDF_DIR.glob("*.pdf")):
             archive.write(pdf, pdf.name)
+        archive.write(COPY_PATH, COPY_PATH.name)
 
     print(f"Created {len(pages)} PDFs")
     print(f"Created {ZIP_PATH.relative_to(ROOT)}")
