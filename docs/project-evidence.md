@@ -37,6 +37,7 @@ Internal working document. Keep this ledger separate from public website copy. R
 - Allowed public claims: Public university research and engineering work completed in a university laboratory setting, including dual-motor PMSM dynamometer integration, TI C2000 F28069M control, field-oriented control, QEP encoder integration, SCI-to-CAN migration, Speedgoat/MATLAB real-time testing where documented, efficiency mapping, and validation workflows.
 - Claims to avoid: Do not present this as a private client engagement or exclusively owned product. Do not publish complete student exercises, instructional answer-key material, raw Simulink models, internal notes, sponsor material, credentials, private paths, or unverified measurements.
 - Evidence source: Public repository README, architecture documentation, hardware integration notes, MATLAB/Python processing, measured plots/data, and authorized project material. Check the repository license before reproducing substantial content.
+- Supporting calculation reference: [engineering-calculations/README.md](engineering-calculations/README.md), including the sanitized workbook, PDF export and full-resolution phase-sense preview.
 
 ## SafeFileAI
 
