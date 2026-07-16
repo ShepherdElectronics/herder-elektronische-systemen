@@ -342,6 +342,12 @@ PCB development and bring-up
 Oscilloscopes, electronic loads and instrumentation
 Real-time control and automated data collection
 Hardware, firmware and model integration
+BUILT ACROSS DISCIPLINARY BOUNDARIES
+I did not enter electrical and computer engineering through the standard sequence of courses. My background is in mechanical engineering and physics, and the absence of a conventional ECE pathway forced me to develop differently.
+I learned embedded systems, power electronics, controls and instrumentation by building complete systems that had to work: designing hardware, writing firmware, integrating sensors and actuators, capturing waveforms, diagnosing failures and validating results against physical evidence.
+What initially appeared to be a missing credential became an advantage. It created the habit of learning from primary documentation, questioning interfaces between disciplines and proving technical claims through measurements rather than relying on familiarity alone.
+That experience now shapes the practice. Projects are approached without artificial boundaries between electronics, software, mechanics and testing. The objective is not merely to produce a design, but to make the system understandable, testable and transferable.
+
 TECHNICAL INDEX
 Embedded: Embedded C/C++ and firmware
 Controls: Motor control and real-time systems
