@@ -81,3 +81,25 @@ revealElements.forEach((element) => {
   if (observer) observer.observe(element);
   else element.classList.add('visible');
 });
+
+const lightboxLinks = document.querySelectorAll('[data-lightbox]');
+if (lightboxLinks.length) {
+  const lightbox = document.createElement('dialog');
+  lightbox.className = 'project-lightbox';
+  lightbox.innerHTML = '<button class="project-lightbox__close" type="button" aria-label="Close enlarged image">Close <span aria-hidden="true">×</span></button><div class="project-lightbox__scroll"><img alt=""></div>';
+  document.body.appendChild(lightbox);
+  const lightboxImage = lightbox.querySelector('img');
+  const closeLightbox = () => lightbox.close();
+  lightbox.querySelector('.project-lightbox__close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  lightboxLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      lightboxImage.src = link.href;
+      lightboxImage.alt = link.querySelector('img')?.alt || '';
+      lightbox.showModal();
+    });
+  });
+}

@@ -758,6 +758,24 @@ Measured speed, torque and power data
 Efficiency maps
 Validation plots
 
+PHASE-SENSE PROTECTION AND LONG-TERM TESTABILITY
+
+The phase-sense network was documented to make the dynamometer easier to maintain, troubleshoot and operate over years of laboratory use.
+
+Each BOOSTXL-DRV8305EVM motor phase is measured individually relative to ground. The schematic uses a 62.0 kΩ upper resistor and a 4.99 kΩ lower resistor, producing a divider ratio of approximately 0.07449 V/V. With a 24 V DC bus, the expected range at each individual VSEN_A, VSEN_B or VSEN_C input is therefore approximately 0 to 1.79 V.
+
+A 0.1 µF capacitor at each VSEN node forms a low-pass filter with the divider’s approximate 4.62 kΩ Thevenin resistance. The resulting time constant is approximately 462 µs and the cutoff frequency is approximately 344 Hz. The measured VSEN signal should therefore appear as a filtered representation of the phase-to-ground switching behavior rather than as a sharp PWM waveform.
+
+The board also uses D2, an onsemi NUP4201MR6T1G low-capacitance TVS diode array, on the low-voltage sensing side. The device is intended to protect sensitive electronics from electrostatic-discharge events and transient overvoltage conditions. It is not a regenerative braking clamp and does not remove regenerated energy from the DC bus.
+
+Recording the expected divider output, filtering behavior and protection-device role gives future students and maintainers a reference for checking the sensing network before replacing hardware or changing firmware. Unexpected readings can be separated into likely bus-voltage, wiring, sensing, protection-device, ADC-reference or test-point problems.
+
+This documentation supports the larger goal of keeping the dynamometer stations understandable, repairable and repeatable through future laboratory courses rather than allowing critical hardware assumptions to remain only in source code or institutional memory.
+
+BOOSTXL phase-sense network calculation. Expected single-ended VSEN behavior for the 62.0 kΩ / 4.99 kΩ divider and 0.1 µF filter, including the normal 0–1.79 V per-phase range at a 24 V DC bus and the protective role of D2, the NUP4201MR6T1G TVS/ESD array.
+
+VSEN_A, VSEN_B and VSEN_C are individual phase-to-ground measurements. They are not direct phase-to-phase voltage signals.
+
 PUBLICATION BOUNDARY
 
 This project was completed in a university laboratory setting. It is presented as public university research and engineering work, not as a private-client engagement or an exclusively owned product.
