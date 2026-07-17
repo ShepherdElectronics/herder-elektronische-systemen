@@ -103,3 +103,13 @@ if (lightboxLinks.length) {
     });
   });
 }
+const transformerModel = document.querySelector('.transformer-model');
+if (transformerModel && 'matchMedia' in window) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const syncTransformerMotion = () => {
+    if (reducedMotion.matches) transformerModel.removeAttribute('auto-rotate');
+    else transformerModel.setAttribute('auto-rotate', '');
+  };
+  syncTransformerMotion();
+  reducedMotion.addEventListener?.('change', syncTransformerMotion);
+}

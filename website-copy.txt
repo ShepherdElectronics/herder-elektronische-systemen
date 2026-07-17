@@ -1128,6 +1128,16 @@ PCB-clearance view
 
 The 3D model documents physical construction and integration. It does not by itself validate electromagnetic performance, insulation coordination, thermal behavior, regulatory compliance, manufacturability or production repeatability.
 
+PHYSICAL REFERENCE
+
+Physical construction matters beyond the turns ratio.
+
+Core geometry, bobbin space, winding order, conductor size, insulation boundaries, gap construction and termination all affect whether a transformer concept can be manufactured and validated. The interactive model is a representative E42 component used to illustrate physical scale and construction—not the RM10 calculator example or a Herder production design.
+
+REPRESENTATIVE E42 COMPONENT
+
+Representative E42 model: “E42_20-K-V-12P-SS-P4211” by Feryster (@darek), CC BY 4.0.
+
 
 PROTOTYPE DELIVERABLES
 
@@ -1248,6 +1258,8 @@ Explore a flyback transformer concept.
 Estimate turns ratio, duty cycle, peak current, flux swing, air gap, winding fit, and idealized switch stress. Results are preliminary engineering estimates—not a substitute for magnetic characterization, insulation design, thermal validation, leakage-inductance measurement, or hardware testing.
 
 The estimator is limited to isolated flyback concepts. Future topology-specific estimators may be added for other converter types; their equations are not interchangeable with this tool.
+
+Method and limitations
 
 This estimator uses simplified first-pass flyback relationships. It does not model rectifier-bus ripple, controller-specific current limits, CCM behavior, leakage inductance, winding capacitance, proximity and skin effects, fringing near the air gap, core loss, copper loss, thermal rise, creepage, clearance, insulation-system qualification, EMI, snubber or clamp design, tolerance stack-up, or manufacturing variation. Final designs require component data, safety requirements, magnetic measurements, and bench validation.
 
