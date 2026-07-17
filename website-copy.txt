@@ -977,9 +977,9 @@ Technically demanding early-stage product development
 
 05 / FOUNDER AND ENGINEERING LEAD
 
-Jonathan Folkema
+Jonathan Hernandez
 
-Jonathan Folkema's work spans embedded control, power electronics, electric machines, real-time testing, instrumentation and engineering software.
+Jonathan Hernandez's work spans embedded control, power electronics, electric machines, real-time testing, instrumentation and engineering software.
 
 His project experience includes permanent-magnet motor drives, field-oriented control, CAN-connected embedded platforms, PCB development, converter prototyping, automated data collection and recovery of complex technical repositories.
 
