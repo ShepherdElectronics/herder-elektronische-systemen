@@ -1241,3 +1241,16 @@ About
 Privacy
 Engagement notes
 Back to top
+FLYBACK TRANSFORMER FEASIBILITY CALCULATOR
+
+Explore a flyback transformer concept.
+
+Estimate turns ratio, duty cycle, peak current, flux swing, air gap, winding fit, and idealized switch stress. Results are preliminary engineering estimates—not a substitute for magnetic characterization, insulation design, thermal validation, leakage-inductance measurement, or hardware testing.
+
+The estimator is limited to isolated flyback concepts. Future topology-specific estimators may be added for other converter types; their equations are not interchangeable with this tool.
+
+This estimator uses simplified first-pass flyback relationships. It does not model rectifier-bus ripple, controller-specific current limits, CCM behavior, leakage inductance, winding capacitance, proximity and skin effects, fringing near the air gap, core loss, copper loss, thermal rise, creepage, clearance, insulation-system qualification, EMI, snubber or clamp design, tolerance stack-up, or manufacturing variation. Final designs require component data, safety requirements, magnetic measurements, and bench validation.
+
+Need this converted into a buildable transformer specification?
+
+A detailed engagement may include topology and operating-mode review, core and bobbin selection, winding structure, conductor selection, insulation planning, gap specification, loss and thermal estimates, prototype winding, inductance and leakage measurements, waveform and temperature validation.
