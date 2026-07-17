@@ -879,9 +879,9 @@ Leave the project in a condition another engineer can understand and continue.
 
 Engineering across connected systems.
 
-Herder Elektronische Systemen works across embedded software, electronics, controls, mechanics and test because the behavior of a prototype rarely belongs to only one layer.
+Herder Elektronische Systemen works across embedded software, electronics, controls, hardware and test because the behavior of a prototype rarely belongs to only one layer.
 
-A control issue may originate in sensing, timing, power delivery or mechanical response. A firmware problem may appear only under real hardware conditions. A test result may depend as much on instrumentation and setup as on the design being evaluated.
+A control issue may originate in sensing, timing, power delivery or physical response. A firmware problem may appear only under real hardware conditions. A test result may depend as much on instrumentation and setup as on the design being evaluated.
 
 The practice therefore treats hardware, firmware, models, communications and measurements as parts of one engineering system. The objective is to identify the relevant interfaces, establish what the evidence supports and leave a technical path that can be reviewed and continued.
 
@@ -966,7 +966,7 @@ Leave the work easier to inspect and continue.
 
 GOOD-FIT ENGAGEMENTS
 
-Embedded or electromechanical prototypes
+Embedded or control-system prototypes
 Incomplete or inherited engineering projects
 Firmware and hardware integration
 Test automation and instrumentation
@@ -979,9 +979,9 @@ Technically demanding early-stage product development
 
 Jonathan Folkema
 
-Jonathan Folkema is a mechanical engineer whose work spans embedded control, power electronics, electric machines, real-time testing, instrumentation and engineering software.
+Jonathan Folkema's work spans embedded control, power electronics, electric machines, real-time testing, instrumentation and engineering software.
 
-His project experience includes permanent-magnet motor drives, field-oriented control, CAN-connected embedded platforms, precision-motion equipment, PCB development, converter prototyping, automated data collection and recovery of complex technical repositories.
+His project experience includes permanent-magnet motor drives, field-oriented control, CAN-connected embedded platforms, PCB development, converter prototyping, automated data collection and recovery of complex technical repositories.
 
 He founded Herder Elektronische Systemen to work on the interfaces that often determine whether a prototype can be understood, tested and continued.
 
@@ -1100,7 +1100,7 @@ Review inductance, winding resistance, leakage inductance, switching behavior an
 
 3D models that make the construction reviewable.
 
-Parametric models can make core geometry, bobbin orientation, winding space, pin mapping and mechanical integration easier to inspect before or after the first physical build.
+Parametric models can make core geometry, bobbin orientation, winding space, pin mapping and assembly integration easier to inspect before or after the first physical build.
 
 Potential model content
 
