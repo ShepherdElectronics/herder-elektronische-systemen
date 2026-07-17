@@ -735,6 +735,24 @@ Hardware-backed demonstrations
 View public repository
 
 
+
+
+HOME - SYSTEM OWNERSHIP
+
+Hero-support line
+Experience includes custom dual-core STM32H747 architecture, TI C2000 motor-control systems, CAN-connected real-time test platforms and software used to configure, exercise and validate working hardware.
+
+SYSTEM OWNERSHIP
+
+From processor architecture to final validation.
+
+Herder Elektronische Systemen takes ownership across the embedded development chain: processor selection, firmware architecture, hardware interfaces, test software, measured validation and technical handoff.
+
+Dual-core embedded architecture
+Custom STM32H747 firmware architecture using OpenAMP and shared-memory interprocessor communication between Cortex-M7 and Cortex-M4, with explicit division between real-time hardware tasks, communications and supporting software.
+
+Complete embedded workflows
+Development from low-level C firmware, interrupts and peripheral timing through Python tooling, telemetry, logging, plots and repeatable operating documentation.
 TI PICCOLO PMSM DYNAMOMETER
 
 A dual-motor dynamometer developed to validate PMSM control across embedded firmware, encoder feedback, CAN communications, real-time testing and measured torque-speed data.
