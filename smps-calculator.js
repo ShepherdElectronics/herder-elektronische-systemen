@@ -27,7 +27,7 @@
     if (id==='flyback' && x.vinMin>=x.vinMax) problems.push('Minimum input voltage must be lower than maximum input voltage.');
     if (id==='flyback' && (x.targetDuty<=5 || x.targetDuty>=90)) problems.push('Target low-line duty must be between 5% and 90% for this quick check.');
     if (id==='boost' && x.vout<=x.vinMin) problems.push('A boost converter cannot produce an output voltage at or below its minimum input voltage.');
-    if (id==='psfb' && x.vout*x.turns/x.vinTyp>=1) problems.push('The calculated PSFB duty is 100% or higher. Revise the turns ratio or operating point.');
+    if (id==='psfb' && x.vinTyp<x.vinMin) problems.push('Typical input voltage must be at least the minimum input voltage.'); if (id==='psfb' && x.vout*x.turns/x.vinTyp>=.95) problems.push('The calculated PSFB duty is 95% or higher. Revise the turns ratio or operating point.'); if (id==='boost' && (1-x.vinMin/x.vout)>=.95) problems.push('Boost duty is 95% or higher. Increase the input voltage, reduce the output voltage, or choose another architecture.');
     return problems;
   };
   function assessmentFor(id,x) {
