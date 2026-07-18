@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const fmt = (value, unit = '', digits = 2) => Number.isFinite(value) ? `${value.toFixed(digits)} ${unit}`.trim() : '—';
+  const fmt = (value, unit = '', sig = 3) => { if (!Number.isFinite(value)) return '—'; const rounded=Number(value.toPrecision(sig)); return `${rounded.toString()} ${unit}`.trim(); };
   const positive = (v) => Number.isFinite(v) && v > 0;
   const calculators = {
     flyback: {
