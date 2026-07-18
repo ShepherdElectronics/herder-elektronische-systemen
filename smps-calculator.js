@@ -6,8 +6,8 @@
     flyback: {
       label: 'Flyback', eyebrow: 'Isolated / low to medium power',
       description: 'Estimate primary current, duty cycle, idealized switch stress and the first magnetics boundary.',
-      fields: [['vinMin','Minimum DC bus','V',120],['vinMax','Maximum DC bus','V',375],['vout','Output voltage','V',24],['iout','Output current','A',2.5],['eff','Estimated efficiency','%',85],['fsw','Switching frequency','kHz',100],['ratio','Secondary / primary turns ratio','',0.15],['lm','Magnetizing inductance','µH',300],['vf','Diode forward drop','V',0.7],['ripple','Output ripple target','%',1]],
-      calculate: (x) => { const eta=x.eff/100, f=x.fsw*1000, p=x.vout*x.iout, pin=p/eta, duty=(x.vout+x.vf)/(x.ratio*x.vinMin+x.vout+x.vf), pk=x.vinMin/x.lm/1e-6*duty/f, crit=x.vinMin**2*duty**2/f*eta/(2*p), cap=x.iout*duty/f/(x.vout*x.ripple/100); return {groups:[['Power boundary',[['Output power',fmt(p,'W')],['Estimated input power',fmt(pin,'W')],['Low-line duty',fmt(duty*100,'%')]]],['Magnetics',[['Critical Lm',fmt(crit*1e6,'µH')],['Selected Lm',fmt(x.lm,'µH')],['Primary peak current',fmt(pk,'A',3)]]],['Stress / output',[['Ideal MOSFET stress',fmt(x.vinMax+(x.vout+x.vf)/x.ratio,'V')],['Minimum output capacitance',fmt(cap*1e6,'µF')]]]], warnings:[duty>.5?'Low-line duty exceeds 50%; confirm controller limits and control approach.':'', 'Ideal switch stress excludes leakage ringing, clamps and snubbers.', 'Validate transformer saturation, insulation, thermal performance, EMI and loop stability.']}; }
+      fields: [['vinMin','Minimum DC bus','V',120],['vinMax','Maximum DC bus','V',375],['vout','Output voltage','V',24],['iout','Output current','A',2.5],['eff','Estimated efficiency','%',85],['fsw','Switching frequency','kHz',100],['targetDuty','Target low-line duty','%',45],['lm','Magnetizing inductance','µH',300],['vf','Diode forward drop','V',0.7],['ripple','Output ripple target','%',1]],
+      calculate: (x) => { const eta=x.eff/100, f=x.fsw*1000, p=x.vout*x.iout, pin=p/eta, vsec=x.vout+x.vf, targetDuty=x.targetDuty/100, ratio=vsec*(1-targetDuty)/(targetDuty*x.vinMin), duty=vsec/(ratio*x.vinMin+vsec), pk=x.vinMin/x.lm/1e-6*duty/f, crit=x.vinMin**2*duty**2/f*eta/(2*p), cap=x.iout*duty/f/(x.vout*x.ripple/100); return {groups:[['Power boundary',[['Output power',fmt(p,'W')],['Estimated input power',fmt(pin,'W')],['Target low-line duty',fmt(duty*100,'%')]]],['Magnetics',[['Required Ns/Np turns ratio',fmt(ratio,'',3)],['Critical Lm',fmt(crit*1e6,'µH')],['Selected Lm',fmt(x.lm,'µH')],['Primary peak current',fmt(pk,'A',3)]]],['Stress / output',[['Ideal MOSFET stress',fmt(x.vinMax+vsec/ratio,'V')],['Minimum output capacitance',fmt(cap*1e6,'µF')]]]], warnings:[duty>.5?'Low-line duty exceeds 50%; confirm controller limits and control approach.':'', 'Ideal switch stress excludes leakage ringing, clamps and snubbers.', 'Validate transformer saturation, insulation, thermal performance, EMI and loop stability.']}; }
     },
     boost: {
       label: 'Boost', eyebrow: 'Non-isolated step-up', description: 'Explore the inductor and current demands of a first-pass boost stage.',
@@ -23,7 +23,9 @@
   const getValues = (form) => Object.fromEntries([...form.elements].filter(e=>e.name).map(e=>[e.name,Number(e.value)]));
   const problemsFor = (id, x) => {
     const problems=[];
-    if (id==='flyback' && (x.vout+x.vf)/(x.ratio*x.vinMin+x.vout+x.vf)>=.9) problems.push('The required low-line duty is 90% or higher. This flyback operating point is not viable as a preliminary concept.');
+    if (x.eff>100) problems.push('Estimated efficiency cannot exceed 100%.');
+    if (id==='flyback' && x.vinMin>=x.vinMax) problems.push('Minimum input voltage must be lower than maximum input voltage.');
+    if (id==='flyback' && (x.targetDuty<=5 || x.targetDuty>=90)) problems.push('Target low-line duty must be between 5% and 90% for this quick check.');
     if (id==='boost' && x.vout<=x.vinMin) problems.push('A boost converter cannot produce an output voltage at or below its minimum input voltage.');
     if (id==='psfb' && x.vout*x.turns/x.vinTyp>=1) problems.push('The calculated PSFB duty is 100% or higher. Revise the turns ratio or operating point.');
     return problems;
