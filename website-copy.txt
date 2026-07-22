@@ -37,6 +37,17 @@ Embedded systems, controls and electronics
 
 Scroll to explore
 
+FEATURED TOOL
+
+SMPS feasibility before the detailed review.
+
+Use topology-specific calculators to check flyback, boost, buck, LLC and PSFB boundaries from a prospective operating point.
+
+Open SMPS feasibility tools
+
+Public technical showcase
+
+The calculator is a practical bridge between the power-electronics service and the public 5V / 1A SMPS work, so it now appears near the top of the homepage instead of only inside a service page.
 
 WHAT WE DO
 
