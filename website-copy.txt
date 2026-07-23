@@ -47,7 +47,7 @@ Open SMPS feasibility tools
 
 Public technical showcase
 
-The calculator is a practical bridge between the power-electronics service and the public 5V / 1A SMPS work, so it now appears near the top of the homepage instead of only inside a service page.
+The calculator is a practical bridge between the power-electronics service and the public 5V / 1A SMPS work, and it now appears after the magnetics overview instead of only inside a service page.
 
 WHAT WE DO
 
