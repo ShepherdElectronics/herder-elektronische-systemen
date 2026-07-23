@@ -1,1279 +1,699 @@
-U.S. POSITIONING
-
-Michigan, United States. Herder Elektronische Systemen is a U.S.-based independent engineering practice serving American technical teams with embedded controls, power-electronics development, real-time testing, engineering recovery and evidence-connected software.
-
 HERDER ELEKTRONISCHE SYSTEMEN
 
-SITE NAVIGATION
+Site navigation
+
 Services
-  Embedded controls & firmware
-  Power electronics prototyping
-  Test automation & validation
-  System integration & recovery
+Embedded controls and firmware
+Power electronics and magnetics
+Test automation and validation
+System integration and recovery
+
 Approach
 Selected work
 About
+Engagements
 Start a technical discussion
-
 
 HOME
 
-Embedded systems, controls and test development
+Electronic systems, engineered at the level the problem requires.
 
-Hardware, firmware and evidence made to work together.
+Herder Elektronische Systemen develops, integrates, recovers and validates electronic systems across embedded firmware, motor control, power electronics, instrumentation and test.
 
-Herder Elektronische Systemen develops, recovers and validates electronic systems across embedded software, power electronics, controls, instrumentation and technical documentation.
+The work may be as focused as selecting a cost-effective power supply, configuring an Arduino-class controller, correcting a communications interface or establishing a repeatable test. More complex engagements may involve custom flyback magnetics, mixed-signal PCB development, deterministic TI C2000 motor control, dual-core STM32 architecture, CAN-connected real-time testing or recovery of an incomplete hardware-software platform.
 
-Discuss your project
-Explore our expertise
+The practice supports R&D teams, laboratories, technical founders, manufacturers and specialized product developers that need hands-on engineering from initial bench work through documented validation.
 
-HES / 01
-SYSTEM STATUS
-VALIDATION READY
+Discuss a technical problem
+Review selected work
 
-Serving clients internationally
+THE CLASS OF PROBLEMS WE SOLVE
 
-Embedded systems, controls and electronics
+Difficult systems rarely fail inside one discipline.
 
-Scroll to explore
+A control problem may originate in sensing, timing, power delivery or physical response. Firmware may appear correct until it is exercised against the real hardware. A test result may be shaped as much by instrumentation and procedure as by the design itself.
 
-FEATURED TOOL
+Herder Elektronische Systemen works where those boundaries meet.
 
-SMPS feasibility before the detailed review.
+Typical engagements involve:
 
-Use topology-specific calculators to check flyback, boost, buck, LLC and PSFB boundaries from a prospective operating point.
+* embedded control that behaves differently on real hardware than in isolation
+* incomplete or inherited systems that cannot be reproduced reliably
+* motor-control, communications or instrumentation integration
+* power-conversion prototypes requiring measured revision
+* test procedures that produce data but not trustworthy conclusions
+* technical projects whose files, hardware and documentation no longer agree
+* early-stage products that need broad hands-on ownership without several separate specialists
 
-Open SMPS feasibility tools
+The objective is to make the system understandable, testable and technically actionable.
 
-Public technical showcase
+THE RIGHT LEVEL OF ENGINEERING
 
-The calculator is a practical bridge between the power-electronics service and the public 5V / 1A SMPS work, and it now appears after the magnetics overview instead of only inside a service page.
+Use the simplest solution that satisfies the real requirement.
 
-WHAT WE DO
+Not every problem requires custom electronics.
 
-Engineering across the interfaces where prototypes fail.
+A commercial power supply, standard module or development board may be the correct answer when its electrical, environmental and integration limits are understood. In other cases, the system may require custom firmware, a purpose-built PCB, deterministic control, custom magnetics or complete real-time validation.
 
-A prototype rarely fails within only one discipline. Hardware assumptions affect firmware. Firmware timing affects control behavior. Instrumentation affects what the test appears to prove.
+Herder Elektronische Systemen works across that range.
 
-Herder Elektronische Systemen connects those layers, reproduces the relevant behavior and uses measured evidence to guide the next technical decision.
+Focused technical decisions
+
+* commercial power-supply selection
+* component and module evaluation
+* Arduino, ESP32 and development-board prototypes
+* sensor and actuator integration
+* CAN, UART, SPI and I²C troubleshooting
+* schematic and interface review
+* bench bring-up
+* fault reproduction
+* test planning
+
+Custom electronic development
+
+* embedded C and C++
+* firmware architecture
+* state machines
+* timing and interrupts
+* PWM, ADC and encoder integration
+* two- and four-layer PCB development
+* mixed-signal design
+* power-stage development
+* custom flyback magnetics
+* Python, MATLAB and Simulink tooling
+
+Complex system ownership
+
+* dual-core embedded architectures
+* PMSM motor-control platforms
+* safety-oriented command and fault behavior
+* software-in-the-loop and hardware-in-the-loop systems
+* CAN-connected real-time test infrastructure
+* recovery of incomplete repositories and prototypes
+* traceable validation
+* technical handoff
+
+This range is supported by work spanning STM32H747 OpenAMP architecture, TI C2000 motor control, BMS electronics, automated test tooling, offline flyback development and laboratory validation.
+
+WHO WE SUPPORT
+
+Technical organizations that need the system to work as a whole.
+
+R&D teams
+
+For prototypes whose progress is limited by unstable integration, incomplete validation or unclear ownership between disciplines.
+
+Laboratories and research groups
+
+For systems combining embedded control, instrumentation, real-time execution, data acquisition and repeatable operating procedures.
+
+Technical founders and product developers
+
+For early hardware products that must progress from proof of concept toward a reviewable engineering prototype.
+
+Manufacturers and small industrial firms
+
+For component selection, embedded integration, custom interfaces, power electronics, troubleshooting and technically difficult revisions.
+
+Teams inheriting incomplete systems
+
+For projects whose hardware, source files, dependencies, documentation and measurements no longer agree.
+
+WHY HERDER ELEKTRONISCHE SYSTEMEN
+
+Cross-layer engineering without unnecessary complexity.
+
+The practice does not force every problem into a custom architecture, and it does not stop at a development board when the application requires deeper engineering.
+
+The differentiator is the ability to move between:
+
+* schematic and PCB
+* firmware and physical behavior
+* controls and instrumentation
+* power electronics and measurement
+* source code and test evidence
+* prototype operation and technical handoff
+
+The goal is not merely to deliver code, a circuit or a report.
+
+The goal is to leave the system more understandable, testable and transferable than it was at the start.
+
+SERVICES
 
 Embedded controls and firmware
 
-Firmware developed around the hardware it must control, with explicit states, interfaces, timing, fault behavior and test procedures.
+Firmware that behaves on the real system.
 
-Power electronics prototyping
+Embedded software is developed around the hardware, timing, interfaces and fault conditions it must manage.
 
-Converter prototypes reviewed and developed through component selection, magnetics, controlled bring-up, waveform capture and bench measurement.
+Typical work includes:
+
+* embedded C and C++
+* firmware architecture
+* state machines and operating modes
+* timers, interrupts and execution order
+* PWM and ADC integration
+* encoder and sensor feedback
+* CAN and serial communications
+* command validation
+* timeout and heartbeat behavior
+* fault detection and latching
+* explicit safe states
+* build and configuration documentation
+
+Representative platforms include TI C2000, STM32, ESP32, AVR and Linux-connected test systems.
+
+Explore embedded controls and firmware
+
+Power electronics and magnetics
+
+Power electronics developed through measured behavior.
+
+Support may begin with selecting a suitable commercial supply or reviewing a converter architecture. It may extend into component selection, custom magnetics, controlled bring-up and measured revision.
+
+Typical work includes:
+
+* power-supply and topology selection
+* controller and switching-device review
+* custom flyback-transformer development
+* core and bobbin selection
+* turns and gap definition
+* winding structure
+* snubbers and clamps
+* controlled bring-up
+* differential probing
+* electronic-load testing
+* inductance and resistance measurements
+* leakage-inductance measurement
+* waveform interpretation
+* PCB and layout observations
+
+The public 5 V / 1 A flyback project includes custom magnetics, measured drain behavior, electronic-load testing and hi-pot validation.
+
+Explore power electronics and magnetics
 
 Test automation and validation
 
-Repeatable test workflows that connect instruments, structured data and analysis so results can be reproduced, reviewed and used.
+Tests designed to support a decision.
+
+A useful test does more than produce data. It preserves the operating condition, instrumentation, processing path and limits behind the conclusion.
+
+Typical work includes:
+
+* instrument and DAQ integration
+* CAN and serial logging
+* encoder and motion data capture
+* structured test inputs
+* timestamped records
+* Python and MATLAB processing
+* automated plots and summaries
+* efficiency maps
+* calibration and scaling checks
+* test procedures
+* repeatability controls
+* acceptance criteria
+* documented uncertainty
+
+Explore test automation and validation
 
 System integration and technical recovery
 
-Incomplete or inherited systems traced across code, hardware, communications and documentation until the current state becomes understandable and actionable.
-
-
-SELECTED WORK
-
-Representative technical projects.
-
-The projects below show the practice in working hardware, firmware, controls, measurement and documentation. Portfolio examples include personal engineering work, public technical projects and research test-facility work. They are identified by source and are not presented as completed private-client engagements.
-
-ESP32 Robotics Control Platform
-
-A hardware-backed robotics platform integrating BNO08x inertial sensing, Bluetooth operator input, H-bridge motor control, quadrature encoder feedback, servo actuation and self-balancing PID behavior.
-
-View project
-View public repository
-
-5 V / 1 A SMPS
-
-An offline flyback prototype documented through transformer construction, component selection, schematic development, waveform capture and bench evaluation.
-
-View project
-View public repository
-
-TI C2000 Actuator Controller
-
-A hardware-backed F28069M demonstrator for command handling, explicit operating states, PWM output, setpoint validation, timeout behavior and fault response.
-
-View project
-View public repository
-
-SPECIALIST MAGNETICS
-
-Custom high-frequency transformer prototypes
-
-Transformer definition, winding construction, 3D documentation and bench evaluation for switch-mode power-supply development.
-
-Explore custom magnetics
-
-
-FEATURED PUBLIC WORK
-
-Controls at testbed scale.
-
-MICHIGAN TECHNOLOGICAL UNIVERSITY RESEARCH AND GRADUATE LABORATORY PLATFORM
-
-TI Piccolo dual-motor PMSM dynamometer
-
-A dual-motor dynamometer developed to validate permanent-magnet synchronous motor control across embedded firmware, encoder feedback, CAN communications, real-time testing and measured torque-speed data.
-
-Jonathan's contribution
-
-Jonathan led the integration and technical recovery of the dual-motor control platform, including embedded-control development, QEP feedback, SCI-to-CAN migration, Speedgoat real-time integration, and repeatable torque, speed, power, and efficiency validation workflows.
-
-Evidence and methods
-
-The public repository includes architecture notes, hardware-integration records, MATLAB and Python processing, efficiency maps and measured speed, torque and power data.
-
-Institutional context
-
-This work was completed in a research test facility. It is not presented as a private-client engagement or an exclusively owned product. The site links to the public repository without reproducing large source files or models.
-
-View public repository
-
-
-START A TECHNICAL DISCUSSION
-
-Start with the technical question.
-
-Describe the system, its current stage, what is failing or incomplete and what evidence is already available.
-
-Useful initial details include:
-
-Project type and current stage
-Technical problem or target behavior
-Available hardware, source files and measurements
-Expected deliverables
-Target schedule
-Approximate budget range
-Preferred contact method
-
-Please do not send sensitive files in the initial email. Secure file exchange can be arranged after the first discussion.
-
-Project details are handled confidentially. Public portfolio material is published only when authorized.
-
-Start a technical discussion
-Or write directly: info@herdersystemen.com
-
-
-EMBEDDED CONTROLS & FIRMWARE
-
-Service 01 / Embedded systems
-
-Embedded controls that behave on real hardware.
-
-Firmware architecture, interfaces, timing and fault behavior developed around the physical system the code must control.
-
-FIRMWARE ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· MOTOR CONTROL ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· CAN ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· REAL-TIME SYSTEMS
-
-
-PROBLEMS THIS ADDRESSES
-
-When the code works in isolation but the system does not.
-
-Embedded behavior becomes difficult to review when operating states, interrupt timing, communications, control logic and hardware assumptions are distributed across different files or undocumented interfaces.
-
-Typical starting points
-
-Unclear operating states
-Intermittent communications
-Control-loop changes that need hardware evidence
-Firmware that cannot be reproduced consistently
-Missing fault behavior
-Uncertain ownership between software and hardware
-
-
-TECHNICAL CAPABILITIES
-
-Make the control path reviewable.
-
-The implementation is organized around the system boundary: what the microcontroller owns, what the hardware guarantees and which behaviors must be verified at the bench.
-
-Firmware architecture
-
-State machines
-Timers and interrupt structure
-Task timing and execution order
-Configuration and build context
-
-Hardware interfaces
-
-Sensor and actuator interfaces
-PWM and ADC integration
-Encoder feedback
-CAN, UART, SPI and IÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²C
-Pin, signal and timing definitions
-
-Control and safety behavior
-
-Setpoint handling
-Control-loop integration
-Timeouts and watchdog behavior
-Fault detection and latching
-Explicit safe states
-
-
-ENGAGEMENT WORKFLOW
-
-From interface to evidence.
-
-1. Define the boundary
-
-Identify the hardware, firmware, communications, control objectives and acceptance conditions.
-
-2. Inspect the codebase
-
-Review source organization, build context, configuration, interfaces and known failure modes.
-
-3. Reproduce behavior
-
-Establish a baseline on the available hardware and record the conditions that produce the observed behavior.
-
-4. Implement and test
-
-Make targeted changes, verify them against the hardware and preserve the evidence for each conclusion.
-
-5. Document the handoff
-
-Record the architecture, interfaces, operating states, test procedure, known limits and next steps.
-
-
-REPRESENTATIVE EVIDENCE
-
-Public work with hardware behind it.
-
-ESP32 Robotics Control Platform
-
-BNO08x sensing, Bluetooth input, H-bridge PWM, encoder feedback, servo actuation and self-balancing PID behavior.
-
-TI C2000 Actuator Controller
-
-F28069M command handling, explicit state control, ePWM output, setpoint validation, timeout handling and fault-latched behavior.
-
-TI Piccolo PMSM dynamometer
-
-Dual-motor control, QEP feedback, SCI-to-CAN migration, real-time testing and measured validation data.
-
-
-DELIVERABLES
-
-A clearer technical next state.
-
-Firmware architecture and interface notes
-Prototype code or targeted implementation changes
-State and fault-behavior documentation
-Build and configuration notes
-Integration and test procedures
-Measured findings and prioritized next steps
-
-Exact deliverables depend on the available hardware, source access, project stage and agreed validation boundary.
-
-
-POWER ELECTRONICS PROTOTYPING
-
-Service 02 / Power conversion
-
-Power electronics developed on the bench.
-
-Converter architecture, magnetics, component choices, controlled bring-up and measured switching behavior treated as one engineering problem.
-
-CONVERTERS ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· PCB PROTOTYPING ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· BRING-UP ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· VALIDATION
-
-
-PROBLEMS THIS ADDRESSES
-
-When the waveform raises the next question.
-
-Component selection, transformer behavior, snubbers, grounding, probing and layout often interact. A useful revision begins by separating those effects with a controlled measurement.
-
-Typical starting points
-
-A low-power converter that needs controlled bring-up
-Incomplete bench records
-Unexplained switching behavior
-A transformer or component choice that needs evaluation
-A layout question tied to measured behavior
-A design revision without a clear test basis
-
-
-TECHNICAL CAPABILITIES
-
-Use the bench to guide the revision.
-
-Power-stage review
-
-Converter topology
-Power-stage architecture
-Controller and switching-device selection
-Magnetics
-Rectification and filtering
-Snubbers and clamps
-Prototype schematics
-PCB observations within the agreed scope
-
-Bring-up and measurement
-
-Current-limited bring-up
-Oscilloscope observations
-Differential probing
-Electronic-load testing
-Inductance and resistance measurements
-Switching-waveform review
-Recorded test conditions
-
-
-ENGAGEMENT WORKFLOW
-
-From power stage to evidence.
-
-1. Define the test boundary
-
-Identify the topology, electrical targets, hardware revision, instrumentation and conditions that matter.
-
-2. Review the design
-
-Examine the schematic, components, magnetics, layout and existing evidence.
-
-3. Bring up carefully
-
-Use controlled power, appropriate probing and staged tests to establish baseline behavior.
-
-4. Compare measurements
-
-Relate waveforms and component measurements to the intended operation and plausible failure mechanisms.
-
-5. Record the next revision
-
-Document the findings, uncertainties and most useful next changes.
-
-
-REPRESENTATIVE EVIDENCE
-
-5 V / 1 A SMPS
-
-An offline flyback prototype using a custom hand-wound RM10/I transformer and TNY285 controller, with schematics, BOM material, construction records, component measurements, switching waveforms and bench notes.
-
-This is public technical work and is not presented as a certified product or completed private-client engagement.
-
-
-DELIVERABLES
-
-Evidence for the next revision.
-
-Converter-architecture notes
-Component-selection observations
-Prototype schematic or BOM revisions
-PCB and layout observations
-Bring-up checklist
-Measured waveforms
-Electronic-load or component-test observations
-Validation notes
-Prioritized revision recommendations
-
-Results are reported with the hardware, instrumentation, operating point and test conditions that shaped them.
-
-
-TEST AUTOMATION & VALIDATION
-
-Service 03 / Evidence and test
-
-Tests worth repeating.
-
-Instrument control, structured data and analysis developed together so a technical result can be reproduced, reviewed and used to choose the next test.
-
-HIL ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· AUTOMATION ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· INSTRUMENTATION ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· DATA PIPELINES
-
-
-PROBLEMS THIS ADDRESSES
-
-When the result cannot be repeated.
-
-Measurements become difficult to trust when procedures are informal, instrument settings are unclear, operating conditions are missing or analysis begins after the test instead of being designed with it.
-
-Typical starting points
-
-Scattered logs
-Manual test steps
-Missing operating-point context
-Instrument-integration questions
-Unclear data provenance
-A technical decision that needs stronger evidence
-
-
-TECHNICAL CAPABILITIES
-
-Turn raw data into usable evidence.
-
-Acquisition
-
-DAQ workflows
-CAN logs
-Encoder data
-Serial telemetry
-Instrument control
-Structured test inputs
-Timestamped data capture
-
-Analysis
-
-Plots and operating-point summaries
-Efficiency maps
-Error and residual analysis
-Allan deviation or stability measures when appropriate
-Automated report inputs
-Traceable processing scripts
-
-Test structure
-
-Baseline definition
-Channel maps
-Instrument settings
-Repeat conditions
-Acceptance criteria
-Data and revision naming
-
-
-ENGAGEMENT WORKFLOW
-
-Make the test worth repeating.
-
-1. Define the question
-
-State the engineering decision the test must support.
-
-2. Map the channels
-
-Identify inputs, outputs, instruments, timing and relevant operating conditions.
-
-3. Run a baseline
-
-Record the current behavior and confirm that the data path is valid.
-
-4. Automate the repeat
-
-Reduce manual variation and preserve configuration, naming and procedure.
-
-5. Report the boundary
-
-State what the data supports, what remains uncertain and which test should follow.
-
-
-REPRESENTATIVE EVIDENCE
-
-ESP32 Robotics Control Platform
-
-MATLAB and Simulink integration with inertial sensing, encoder feedback, motor control and self-balancing PID behavior.
-
-5 V / 1 A SMPS
-
-Component measurements, switching-waveform captures and bench notes used to review an offline flyback prototype.
-
-TI Piccolo PMSM dynamometer
-
-Real-time testing, efficiency mapping, validation plots and dual-motor control integration.
-
-
-DELIVERABLES
-
-Usable evidence.
-
-Automated test scripts
-Procedure definitions
-Instrument and acquisition configuration
-Structured logs
-Plots and analysis notebooks
-Validation summaries with stated conditions
-Prioritized findings for the next test
-
-The final method depends on the available hardware, instrumentation, data quality and measurement access.
-
-
-SYSTEM INTEGRATION & TECHNICAL RECOVERY
-
-Service 04 / Integration
-
 Make the system legible again.
 
-Hardware, firmware, dependencies, communications and evidence traced until an incomplete or inherited prototype has a reviewable path forward.
+Inherited and incomplete systems often fail between layers rather than inside one component.
 
-REPOSITORY ANALYSIS ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· EVIDENCE RECOVERY ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· INTEGRATION ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· TECHNICAL DOCUMENTATION
+Typical work includes:
 
+* repository and build assessment
+* dependency review
+* configuration recovery
+* hardware-software boundary mapping
+* communications-path reconstruction
+* fault reproduction
+* test-system recovery
+* evidence mapping
+* targeted implementation changes
+* current-state documentation
+* prioritized next work
 
-PROBLEMS THIS ADDRESSES
+Explore system integration and recovery
 
-When context is the missing part.
+HOW ENGAGEMENTS WORK
 
-Inherited systems often fail between layers. A build depends on undocumented setup. A communication path is only partly understood. A result cannot be tied back to the code, model or hardware that produced it.
+A professional engagement begins with the technical boundary.
 
-Typical starting points
+A premium client should be able to understand how the relationship starts, what information is required and what the first stage produces.
 
-Fragile dependencies
-Incomplete handoff
-Unclear failure reproduction
-Missing design decisions
-Uncertain build or deployment steps
-A prototype that is too unstable or poorly documented to review
+1. Initial inquiry
 
+The first message should identify:
 
-TECHNICAL CAPABILITIES
+* the system or product
+* its present stage
+* the technical problem or decision
+* available hardware
+* available source files
+* existing measurements
+* expected deliverables
+* schedule
+* approximate budget range
+* preferred working arrangement
 
-Recover the links between layers.
+Sensitive files are not required for the initial inquiry.
 
-Code and dependencies
+2. First technical discussion
 
-Repository assessment
-Build review
-Source organization
-Configuration context
-Dependency mapping
-Reproduction steps
+The first discussion is used to determine:
 
-Interfaces and behavior
+* whether the problem fits the practice
+* whether the available evidence is sufficient
+* what additional access is needed
+* which uncertainties should be resolved first
+* whether the work should begin as an assessment, prototype task, recovery phase or larger development engagement
 
-Hardware and firmware boundaries
-Communications paths
-Control and timing behavior
-Instrument and test connections
-Failure reproduction
-Evidence mapping
+The first discussion is not a free design review.
 
-Technical documentation
+Its purpose is to establish the technical and commercial boundary.
 
-Current-state summary
-Known assumptions
-Root-cause findings
-Open risks
-Handoff notes
-Prioritized next work
+3. What the first discussion produces
 
+When there is a credible fit, the discussion produces a written next step that may include:
 
-ENGAGEMENT WORKFLOW
+* a concise problem definition
+* the proposed scope
+* required inputs
+* expected deliverables
+* responsibilities
+* assumptions
+* exclusions
+* schedule
+* estimated effort or project price
+* acceptance conditions
+* confidentiality requirements
 
-From unknowns to a map.
+Where the technical state is too uncertain for a complete project scope, the first paid phase may be a technical assessment.
 
-1. Set the boundary
+4. NDA and confidential information
 
-Identify the system, available access, expected outcome and known constraints.
+Mutual or client-provided NDAs can be reviewed before sensitive technical material is exchanged.
 
-2. Inspect the system
+Confidential project files should be transferred only through an agreed secure method.
 
-Review repositories, build instructions, interfaces, hardware, logs and existing documentation.
+Herder Elektronische Systemen does not publish client work, client names, technical details or engagement outcomes without explicit authorization.
 
-3. Reproduce the state
+Public portfolio material consists of authorized work, personal engineering projects and clearly identified academic or research-facility work.
 
-Establish what can be built, run or measured and under which conditions.
+5. Geography and working arrangement
 
-4. Stabilize the path
+Herder Elektronische Systemen is based in Michigan, United States.
 
-Correct the highest-value blockers and create targeted checks around the recovered behavior.
+Most software, firmware, design review, analysis, documentation and technical-recovery work can be completed remotely.
 
-5. Document the handoff
+Remote engagements may use:
 
-Leave a usable explanation of the system, the evidence and the remaining work.
+* secure file exchange
+* source-control access
+* test data
+* photographs and video
+* instrument exports
+* shipped hardware
+* documented remote test procedures
 
+On-site work may be considered when physical access is necessary for:
 
-REPRESENTATIVE EVIDENCE
+* prototype bring-up
+* instrumentation
+* embedded-system integration
+* power-electronics testing
+* motor-control systems
+* laboratory recovery
+* acceptance testing
 
-ESP32 Robotics Control Platform
+Local and regional on-site work is most practical within Michigan and the greater Great Lakes region. Travel outside that area requires a defined scope, schedule and expense arrangement.
 
-A multi-layer system combining sensing, wireless input, PWM motor control, encoders, servo actuation and PID behavior.
+6. Response expectations
 
-TI C2000 Actuator Controller
+Initial inquiries are reviewed for technical fit, available evidence and scheduling feasibility.
 
-F28069M command handling, state behavior, ePWM output, validation and fault response.
+Clients should expect:
 
-TI Piccolo PMSM dynamometer
+* acknowledgement of a serious inquiry
+* direct questions where important information is missing
+* a clear indication of fit or non-fit
+* written scope before substantive engineering begins
+* documented findings rather than informal conclusions
+* explicit identification of assumptions and uncertainty
+* communication when scope, schedule or technical risk changes
 
-Dual-motor controls, CAN communications, real-time testing and measured validation evidence.
-
-5 V / 1 A SMPS
-
-An offline flyback prototype with schematics, BOM material, transformer construction records, component measurements, waveforms and bench notes.
-
+Urgent or emergency work must be identified clearly and is accepted only when capacity and access permit.
 
 DELIVERABLES
 
-A usable technical map.
+Deliverables are matched to the decision the work must support.
 
-System and repository assessment
-Reproduction steps
-Root-cause findings
-Build and dependency notes
-Interface documentation
-Targeted code or configuration changes
-Validation checks
-Handoff documentation
-Prioritized next steps
+Depending on the engagement, deliverables may include:
 
-The useful boundary depends on the hardware, code, documentation, measurements and knowledgeable people available.
+Embedded systems
 
+* firmware architecture
+* source code
+* state-machine definitions
+* command and telemetry specifications
+* interface documentation
+* build and configuration notes
+* timeout and fault behavior
+* verification procedures
+
+Hardware and power electronics
+
+* schematic revisions
+* component-selection notes
+* PCB observations
+* converter calculations
+* magnetics specifications
+* turns tables
+* gap and winding definitions
+* bring-up procedures
+* measured waveforms
+* revision recommendations
+
+Test and validation
+
+* automated test scripts
+* instrument configuration
+* channel maps
+* structured logs
+* analysis scripts
+* plots
+* efficiency maps
+* validation summaries
+* test conditions
+* acceptance findings
+
+Technical recovery
+
+* repository assessment
+* reproduction steps
+* dependency map
+* current-state summary
+* root-cause findings
+* recovered interfaces
+* risk register
+* prioritized next steps
+* technical handoff documentation
+
+Deliverables are defined before work begins and are tied to the agreed validation boundary.
+
+PROJECTS ACCEPTED
+
+Good-fit projects
+
+Herder Elektronische Systemen is generally a good fit for:
+
+* embedded and control-system prototypes
+* firmware and hardware integration
+* motor-control platforms
+* real-time test systems
+* power-electronics prototypes
+* custom flyback magnetics
+* instrumentation and test automation
+* mixed-signal prototypes
+* inherited engineering systems
+* incomplete repositories
+* failure reproduction
+* design recovery
+* technical documentation
+* technically demanding early-stage hardware products
+* research and laboratory platforms
+* short, focused technical assessments
+* larger development phases with clear boundaries
+
+PROJECTS NOT ACCEPTED
+
+Clear exclusions protect both parties.
+
+The practice does not accept:
+
+* work requiring representation as a licensed professional engineer where licensure is legally required
+* certification claims without an appropriate certification body
+* final regulatory approval
+* production qualification presented as complete without the required testing
+* undocumented safety-critical deployment
+* medical, aviation, automotive or industrial-safety claims beyond the agreed engineering evidence
+* copying or reverse engineering proprietary systems without authorization
+* work involving stolen, unlawfully obtained or restricted technical material
+* requests to fabricate measurements, test results or compliance evidence
+* projects where the client will not provide sufficient access to reproduce the issue
+* engagements whose schedule or budget is incompatible with the required technical work
+* open-ended emergency support without a defined scope
+* production manufacturing commitments unless explicitly agreed
+* guaranteed outcomes where the available hardware, evidence or access cannot support such a guarantee
+
+Standards-inspired methods may be used where appropriate, but they are not presented as certification unless separately established.
 
 ENGINEERING APPROACH
 
 Engineering decisions made before they become expensive.
 
-Good engineering reduces uncertainty one decision at a time. Architecture, implementation, integration and validation are connected so the next step is based on evidence rather than guesswork.
+Understand
 
+Establish:
 
-UNDERSTAND
+* requirements
+* constraints
+* current hardware and software
+* known failure modes
+* available evidence
+* risks
+* acceptance conditions
 
-Establish the real problem.
+Architect
 
-Requirements
-Constraints
-Existing hardware and software
-Failure modes
-Available documentation
-Known evidence
-Project risks
-Acceptance conditions
+Define:
 
+* system boundaries
+* hardware and software ownership
+* interfaces
+* communications
+* control strategy
+* test strategy
+* fault behavior
+* documentation structure
 
-ARCHITECT
+Build
 
-Define the system boundary.
+Implement:
 
-Hardware and software ownership
-Interfaces
-Communications
-Control strategy
-Test strategy
-Safety behavior
-Documentation structure
+* firmware
+* electronics
+* controls
+* automation
+* prototype integration
+* targeted revisions
 
+Validate
 
-BUILD
+Measure:
 
-Implement around the critical decisions.
+* integrated behavior
+* repeatability
+* timing
+* scaling
+* physical response
+* test limits
+* remaining uncertainty
 
-Firmware
-Electronics
-Embedded systems
-Controls
-Automation
-Prototype integration
-Targeted revisions
+Hand off
 
+Leave:
 
-VALIDATE
+* source and build context
+* interface documentation
+* procedures
+* evidence
+* limitations
+* prioritized next work
 
-Measure the integrated system.
-
-Repeatable tests
-Instrumented behavior
-Data analysis
-Debugging
-Technical reporting
-Handoff documentation
-
-Make the critical decision while it is still inexpensive to change.
-
-
-SELECTED PROJECTS
+SELECTED WORK
 
 Systems built to be inspected.
 
-Representative work across embedded controls, power electronics, real-time testing and system integration.
+The following examples show public technical work across embedded controls, power electronics, real-time testing and system integration.
+
+They include personal engineering projects and research-facility work. They are identified by source and are not presented as completed private-client engagements.
 
 ESP32 Robotics Control Platform
 
-Sensor, actuator and control integration around an ESP32 platform using embedded C++ with MATLAB and Simulink connections.
+A hardware-backed robotics platform integrating:
+
+* BNO08x inertial sensing
+* Bluetooth operator input
+* H-bridge motor control
+* quadrature encoder feedback
+* servo actuation
+* self-balancing PID behavior
+* embedded C++
+* MATLAB and Simulink integration
+
+View project
+View public repository
 
 TI C2000 Actuator Controller
 
-F28069M command handling, explicit states, ePWM output, setpoint validation and fault-response behavior.
+A hardware-backed F28069M demonstrator for:
 
-TI Piccolo PMSM Dynamometer
-
-Dual-motor PMSM control, CAN communications, real-time testing and measured validation workflows.
-
-5 V / 1 A SMPS
-
-An offline flyback prototype with transformer construction, schematics, component measurements, switching waveforms and bench notes.
+* command handling
+* explicit operating states
+* ePWM output
+* setpoint validation
+* heartbeat timeout
+* invalid-command rejection
+* fault-latched shutdown
+* verification evidence
 
 View project
-View repository
-
-
-ESP32 ROBOTICS CONTROL PLATFORM
-
-A hardware-backed robotics platform that connects sensing, operator input, motor drive and feedback control in one testable embedded system.
-
-SYSTEM SCOPE
-
-BNO08x inertial sensing
-Bluetooth operator input
-H-bridge motor drive
-Quadrature encoder feedback
-Servo actuation
-Self-balancing PID behavior
-Embedded C++
-MATLAB and Simulink integration
-
-TECHNICAL EVIDENCE
-
-Architecture and interface documentation
-Hardware photographs
-Firmware structure
-Sensor and actuator integration
-Measured or demonstrated control behavior
-
 View public repository
 
+5 V / 1 A Offline Flyback Converter
 
-TI C2000 ACTUATOR CONTROLLER
+An offline converter prototype documented through:
 
-A hardware-backed F28069M control demonstrator organized around explicit command handling, operating states, PWM output, setpoint validation, timeout behavior and fault response.
+* TNY285 controller selection
+* custom hand-wound transformer
+* TL431 and optocoupler feedback
+* RCD clamp development
+* schematic design
+* inductance measurement
+* leakage-inductance measurement
+* high-voltage differential probing
+* electronic-load testing
+* 2 kV hi-pot testing
 
-SYSTEM SCOPE
-
-TI C2000 F28069M
-SCI and UART command handling
-Explicit operating states
-ePWM output
-Setpoint validation
-Heartbeat timeout
-Fault latching
-Python support tools
-
-TECHNICAL EVIDENCE
-
-State-machine behavior
-Command and timeout handling
-PWM output states
-Fault-response behavior
-Hardware-backed demonstrations
-
+View project
 View public repository
 
+FEATURED INSTITUTIONAL WORK
 
+Michigan Technological University research and graduate laboratory platform
 
+TI Piccolo dual-motor PMSM dynamometer
 
-HOME - SYSTEM OWNERSHIP
+A dual-motor dynamometer developed within Michigan Technological University’s electrified-propulsion laboratory for permanent-magnet motor control, CAN communications, real-time testing and measured drivetrain validation.
 
-Hero-support line
-Experience includes custom dual-core STM32H747 architecture, TI C2000 motor-control systems, CAN-connected real-time test platforms and software used to configure, exercise and validate working hardware.
+The platform is being prepared for use in ME 5990 — Electric Propulsion Systems, a Spring 2027 graduate course covering batteries, power electronics, electric machines, software-in-the-loop and hardware-in-the-loop simulation, CAN, drive cycles, regenerative braking and dynamometer-based load emulation.
 
-SYSTEM OWNERSHIP
+Jonathan’s contribution
 
-From processor architecture to final validation.
+Jonathan led integration and technical recovery of the platform, including:
 
-Herder Elektronische Systemen takes ownership across the embedded development chain: processor selection, firmware architecture, hardware interfaces, test software, measured validation and technical handoff.
-
-Dual-core embedded architecture
-Custom STM32H747 firmware architecture using OpenAMP and shared-memory interprocessor communication between Cortex-M7 and Cortex-M4, with explicit division between real-time hardware tasks, communications and supporting software.
-
-Complete embedded workflows
-Development from low-level C firmware, interrupts and peripheral timing through Python tooling, telemetry, logging, plots and repeatable operating documentation.
-TI PICCOLO PMSM DYNAMOMETER
-
-A dual-motor dynamometer developed to validate PMSM control across embedded firmware, encoder feedback, CAN communications, real-time testing and measured torque-speed data.
-
-SYSTEM SCOPE
-
-Dual PMSM testbed
-TI Piccolo control hardware
-QEP encoder feedback
-SCI-to-CAN migration
-Speedgoat real-time testing
-MATLAB and Python processing
-Torque, speed, power and efficiency analysis
-
-TECHNICAL EVIDENCE
-
-Architecture documentation
-Hardware-integration notes
-CAN and signal mapping
-Measured speed, torque and power data
-Efficiency maps
-Validation plots
-
-PHASE SENSING, REGENERATION AND LONG-TERM TESTABILITY
-
-sÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢s operating knowledge and support future maintenance and troubleshooting.
-
-Each BOOSTXL-DRV8305EVM motor phase is sensed relative to ground through a 62.0 kÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â© and 4.99 kÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â© divider. Its ratio is approximately 0.07449 V/V, giving an expected VSEN_A, VSEN_B or VSEN_C range of 0 to 1.79 V from a 24 V DC bus.
-
-A 0.1 &#181;F capacitor at each VSEN node forms a low-pass filter with the divider&apos;s approximate 4.62 k&#937; Thevenin resistance. The resulting time constant is about 462 &#181;s and the cutoff frequency is approximately 344 Hz. The VSEN signals therefore represent filtered phase-to-ground switching behavior rather than sharp PWM waveforms.
-
-D2, an onsemi NUP4201MR6T1G TVS/ESD array, protects the low-voltage sensing electronics from electrostatic discharge and brief overvoltage transients. It does not absorb sustained regenerated energy or act as a brake resistor, DC-bus clamp or dump circuit.
-
-During regenerative operation, the load motor returns energy through the inverter to the shared DC bus. If the supply cannot absorb that energy, the bus voltage can rise even though the VSEN inputs remain protected.
-
-Regenerated energy must therefore be managed separately through a regenerative supply, controlled braking resistor, DC-bus clamp, temporary storage or operating limits appropriate to the final station architecture.
-
-The phase-sense network supports measurement and diagnosis; the TVS array protects the sensing electronics; neither manages power returned to the DC bus.
-
-Recording these boundaries helps future users distinguish sensing faults, ADC-range problems and transient events from genuine regeneration-driven bus overvoltage. It also preserves the assumptions and expected measurements needed to keep the dynamometer understandable, repairable and repeatable.
-
-BOOSTXL phase-sense and protection calculation showing the 62.0 k&#937; / 4.99 k&#937; divider, 0.1 &#181;F filtering, expected 0-1.79 V per-phase VSEN range at a 24 V bus, and the separate role of the NUP4201MR6T1G TVS/ESD array. The TVS protects low-voltage sensing electronics from transients; regenerated motor energy must be managed separately at the DC bus.
-
-VSEN_A, VSEN_B and VSEN_C are individual phase-to-ground measurements. They are not direct phase-to-phase voltage signals.
+* TI C2000 motor-control development
+* QEP feedback
+* command and telemetry restructuring
+* SCI-to-CAN migration
+* Speedgoat real-time integration
+* drive-cycle testing
+* torque, speed, power and efficiency workflows
+* laboratory-use documentation
+* version-managed test automation
 
 Institutional context
 
-This project was completed in a research test facility. It is presented as MICHIGAN TECHNOLOGICAL UNIVERSITY RESEARCH AND GRADUATE LABORATORY PLATFORM, not as a private-client engagement or an exclusively owned product.
+This work was completed using Michigan Technological University laboratory equipment and infrastructure.
+
+It is presented as public academic and research work, not as a privately owned Herder Elektronische Systemen product or completed client engagement.
 
 View public repository
 
+ABOUT
 
-5 V / 1 A SMPS
+Engineering systems that can be understood, tested and continued.
 
-An offline flyback prototype documented from transformer construction and component selection through waveform capture and bench evaluation.
+Herder Elektronische Systemen is a U.S.-based independent engineering practice in Michigan.
 
-SYSTEM SCOPE
+The practice works across embedded firmware, electronics, controls, power conversion, instrumentation and technical recovery because the behavior of a prototype rarely belongs to only one layer.
 
-Offline flyback topology
-TNY285 controller
-Custom hand-wound RM10/I transformer
-Prototype schematic
-BOM material
-Transformer construction
-Inductance and resistance measurements
-Switching-waveform capture
-Bench observations
+The central method is straightforward:
 
-TECHNICAL EVIDENCE
+* define the real technical boundary
+* reproduce the relevant behavior
+* measure the system
+* connect conclusions to evidence
+* preserve what is known
+* state what remains uncertain
+* leave a usable technical path forward
 
-Switching drain waveform
-Gapped transformer and Kapton insulation construction
-Transformer pin and termination orientation
-Primary-winding inductance measurement
-Leakage-inductance measurement
-Seventy-two-turn winding-resistance measurement
-
-The gallery uses existing repository photographs only. Captions identify the documented subject without inferring values or performance claims beyond what the image and repository evidence support.
-
-Additional photographs worth capturing
-
-A tight populated-PCB photograph
-A complete assembled-transformer photograph
-A complete bench setup
-A readable regulated-output-under-load capture
-
-View public repository
-
-
-ABOUT HERDER ELEKTRONISCHE SYSTEMEN
-
-Engineering systems that can be understood, tested and trusted.
-
-Herder Elektronische Systemen is a U.S.-based independent engineering practice in Michigan serving technical teams, laboratories, manufacturers and small industrial firms with embedded controls, power electronics, real-time testing, technical recovery and AI-assisted engineering software.
-
-
-01 / ORIGINS
-
-A practice built from engineering test work.
-
-Herder Elektronische Systemen grew from a working engineering test facility used for power electronics, embedded control, electric machines, instrumentation and real-time testing.
-
-Development boards, power stages, motors, sensors, test equipment and experimental circuits became an environment for building complete systems. Hardware was connected to firmware, firmware to controls, controls to instrumentation and measurements back to design decisions.
-
-That engineering test work established the practice's central method: follow the technical problem across the full system until the implementation, physical behavior and evidence agree.
-
-As projects became larger, another problem became equally important. Engineering context was often scattered across source files, models, test data, schematics, archived revisions and incomplete documentation. Recovering the reasoning behind a project could become as difficult as building it.
-
-That need led to work in technical recovery, evidence preservation and AI-assisted engineering software. SafeFileAI and SafeECADAI emerged from the need to keep engineering conclusions connected to the files, measurements and decisions that support them.
-
-The practice developed from a consistent sequence:
-
-Build the system.
-Measure its behavior.
-Preserve the evidence.
-Leave the project in a condition another engineer can understand and continue.
-
-
-02 / INTEGRATED ENGINEERING
-
-Engineering across connected systems.
-
-Herder Elektronische Systemen works across embedded software, electronics, controls, hardware and test because the behavior of a prototype rarely belongs to only one layer.
-
-A control issue may originate in sensing, timing, power delivery or physical response. A firmware problem may appear only under real hardware conditions. A test result may depend as much on instrumentation and setup as on the design being evaluated.
-
-The practice therefore treats hardware, firmware, models, communications and measurements as parts of one engineering system. The objective is to identify the relevant interfaces, establish what the evidence supports and leave a technical path that can be reviewed and continued.
-
-
-03 / TECHNICAL FOUNDATION
-
-A capability profile.
-
-Embedded
-
-Embedded C and C++
-Firmware architecture
-State machines
-Timing and interrupts
-
-Controls
-
-Motor control
-Field-oriented control
-Real-time systems
-Feedback integration
-
-Communications
-
-CAN
-UART
-SPI
-IÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â²C
-
-Modeling and analysis
-
-MATLAB
-Simulink
-Python processing
-Structured test data
-
-Hardware
-
-PCB design
-Prototype bring-up
-Sensors and actuators
-Power-stage integration
-
-Power electronics
-
-Converter prototyping
-Flyback development
-Custom magnetics
-Bench measurement
-
-Testing
-
-Instrument integration
-Automated data collection
-Validation workflows
-Technical reporting
-
-Recovery
-
-Repository assessment
-Build reproduction
-Evidence recovery
-Technical documentation
-
-Software
-
-AI-assisted engineering tooling
-Evidence-aware technical workflows
-
-
-04 / ENGINEERING PRINCIPLES
-
-Evidence before claims.
-
-Base claims on evidence.
-Preserve system context.
-Make changes traceable.
-Test the integrated system.
-State uncertainty clearly.
-Leave the work easier to inspect and continue.
-
-
-GOOD-FIT ENGAGEMENTS
-
-Embedded or control-system prototypes
-Incomplete or inherited engineering projects
-Firmware and hardware integration
-Test automation and instrumentation
-Power-electronics prototypes
-Design recovery and technical documentation
-Technically demanding early-stage product development
-
-
-05 / FOUNDER AND ENGINEERING LEAD
+Founder and engineering lead
 
 Jonathan Hernandez
 
-Jonathan Hernandez's work spans embedded control, power electronics, electric machines, real-time testing, instrumentation and engineering software.
+Jonathan Hernandez’s work spans embedded control, motor drives, power electronics, mixed-signal hardware, instrumentation, real-time testing and engineering software.
 
-His project experience includes permanent-magnet motor drives, field-oriented control, CAN-connected embedded platforms, PCB development, converter prototyping, automated data collection and recovery of complex technical repositories.
+His experience includes:
 
-He founded Herder Elektronische Systemen to work on the interfaces that often determine whether a prototype can be understood, tested and continued.
+* custom STM32H747 dual-core architecture
+* TI C2000 motor control
+* PMSM dynamometer integration
+* CAN-connected test systems
+* BMS electronics
+* PCB development
+* offline flyback conversion
+* custom magnetics
+* automated data acquisition
+* hardware-backed validation
+* technical repository recovery
 
-A control problem may require inspecting the power stage. A firmware problem may originate in sensing or timing. A weak test result may come from instrumentation rather than the design itself. A project may appear complete but remain difficult to continue because its files, assumptions and evidence are disconnected.
-
-The practice is built around hands-on investigation, measured validation, careful recovery and documentation that preserves what is known, what remains uncertain and what should happen next.
-
-
-WORKING PERSPECTIVE
-
-Build enough of the system to understand the interfaces.
-Measure the physical behavior before making strong claims.
-Keep software conclusions connected to engineering evidence.
-Preserve uncertainty instead of concealing it.
-Leave projects easier to inspect and continue than they were found.
-
+He operates an independent electronics laboratory equipped for embedded development, power-electronics prototyping, motor-control work, high-voltage probing, electronic-load testing, inductance measurement, hi-pot testing and prototype bring-up.
 
 START A TECHNICAL DISCUSSION
 
-Start with the technical question.
+Bring the actual engineering question.
 
-Describe the system, its current stage, the problem you are trying to resolve and the evidence already available.
+Describe:
 
-Secure file exchange can follow the initial discussion.
+* what exists
+* what is failing or incomplete
+* what has already been tried
+* what hardware and source material are available
+* what decision the work must support
+* the expected schedule
+* the approximate budget range
+
+Please do not send sensitive technical files in the initial email.
+
+Secure exchange and NDA handling can follow once fit and scope are established.
 
 Start a technical discussion
-Or write directly: info@herdersystemen.com
-
-
-CUSTOM HIGH-FREQUENCY TRANSFORMERS
-
-Custom magnetics / SMPS development
-
-Custom high-frequency transformer prototypes built for the next bench test.
-
-Herder Elektronische Systemen develops transformer prototypes for switch-mode power supplies by connecting electrical requirements, core selection, winding construction, 3D documentation and measured bench behavior.
-
-FLYBACK ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· SMPS MAGNETICS ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· CUSTOM WINDING ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· 3D MODELING ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· PROTOTYPE VALIDATION
-
-Discuss a transformer prototype
-View the 5 V / 1 A SMPS project
-
-
-WHAT CAN BE DEVELOPED
-
-Magnetics shaped around the converter.
-
-Flyback transformer prototypes
-High-frequency isolation-transformer prototypes
-Custom turns ratios
-Primary, secondary and auxiliary windings
-Gapped ferrite-core prototypes
-RM, EE, EFD, ETD and other suitable ferrite geometries
-Hand-wound engineering samples
-Small prototype quantities
-Revisions of existing transformer designs
-Replacement prototypes where sufficient source information is available
-
-Feasibility depends on topology, input range, output requirements, switching frequency, isolation needs, core geometry, winding window, thermal limits, safety expectations and component availability.
-
-
-CUSTOMER INPUTS
-
-Bring the electrical boundary.
-
-Converter topology
-Input-voltage range
-Output voltage and current
-Switching frequency
-Controller or primary-side IC
-Target power
-Number of windings
-Auxiliary-bias requirements
-Isolation requirement
-Core or size constraints
-Expected duty cycle
-Existing schematic
-Existing transformer data
-Target quantity
-Intended environment
-Safety or qualification expectations
-
-Please do not send sensitive design files through the initial email. Secure file exchange can be arranged after the first discussion.
-
-
-ENGINEERING WORKFLOW
-
-From requirements to a reviewable prototype.
-
-1. Define the electrical boundary
-
-Confirm the topology, input range, output requirements, switching frequency, duty-cycle assumptions and isolation needs.
-
-2. Select the magnetic structure
-
-Review core material, geometry, effective area, winding window and gap approach.
-
-3. Develop the winding construction
-
-Define turns, wire, winding order, insulation assumptions, polarity and pin mapping.
-
-4. Model and document the assembly
-
-Produce construction drawings, winding-stack views and 3D reference models where included.
-
-5. Wind and inspect the prototype
-
-Build the engineering sample and record the construction details.
-
-6. Measure and revise
-
-Review inductance, winding resistance, leakage inductance, switching behavior and converter-level observations where test access permits.
-
-
-3D TRANSFORMER MODELING
-
-3D models that make the construction reviewable.
-
-Parametric models can make core geometry, bobbin orientation, winding space, pin mapping and assembly integration easier to inspect before or after the first physical build.
-
-Potential model content
-
-Core, bobbin, pin and assembly geometry
-Simplified winding-layer models
-Insulation-stack visualization
-Core-gap representation
-Winding-window utilization
-Exploded assembly views
-Pin numbering and polarity orientation
-PCB-mounted clearance review
-Enclosure and neighboring-component clearance
-Dimensioned reference drawings
-Technical documentation renders
-
-Potential CAD deliverables
-
-Native parametric model where agreed
-STEP export
-Dimensioned drawing
-Exploded view
-Winding-stack illustration
-Pinout and polarity diagram
-PCB-clearance view
-
-The 3D model documents physical construction and integration. It does not by itself validate electromagnetic performance, insulation coordination, thermal behavior, regulatory compliance, manufacturability or production repeatability.
-
-PHYSICAL REFERENCE
-
-Physical construction matters beyond the turns ratio.
-
-Core geometry, bobbin space, winding order, conductor size, insulation boundaries, gap construction and termination all affect whether a transformer concept can be manufactured and validated. The interactive model is a representative E42 component used to illustrate physical scale and constructionÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Ânot the RM10 calculator example or a Herder production design.
-
-REPRESENTATIVE E42 COMPONENT
-
-Representative E42 model: ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“E42_20-K-V-12P-SS-P4211ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â by Feryster (@darek), CC BY 4.0.
-
-
-PROTOTYPE DELIVERABLES
-
-A prototype with enough information to continue.
-
-Wound transformer prototype
-Winding specification
-Turns table
-Wire and insulation notes
-Core and gap information
-Pinout and polarity
-Inductance measurements
-Winding-resistance measurements
-Leakage-inductance observations
-Construction notes
-3D construction model where included
-Bench-test notes
-Revision recommendations
-
-Exact deliverables depend on the agreed scope, available test access and whether the request covers transformer construction only or converter-level evaluation.
-
-
-EVIDENCE AND VALIDATION
-
-Measurements with the test conditions attached.
-
-Relevant evidence may include:
-
-Transformer photographs
-Winding diagrams
-Core and gap details
-Schematic excerpts
-Inductance measurements
-Winding-resistance measurements
-Leakage-inductance measurements
-Switching waveforms
-Load-test results
-3D assembly models
-
-Each evidence block should identify the source or provenance, instrument, test date, operating condition and prototype revision.
-
-Prototype magnetics are engineering samples. Suitability for production, reinforced insulation, regulatory compliance, long-term reliability, thermal performance and manufacturing repeatability requires separate analysis, testing and qualification.
-
-
-RELATED WORK
-
-5 V / 1 A SMPS
-
-An offline flyback prototype with custom transformer work, schematics, component measurements, switching waveforms and bench notes.
-
-View project
-View repository
-Power electronics prototyping
-
-
-FINAL CTA
-
-Bring the converter requirements.
-
-Share the topology, electrical targets, switching frequency, intended quantity and what has already been measured.
-
-Secure file exchange can follow the initial discussion.
-
-Discuss a transformer prototype
-
+info@herdersystemen.com
 
 PRIVACY
 
-Privacy information.
+Confidentiality begins before the engagement.
 
-Contact information
+Information submitted through email is used to evaluate and respond to the inquiry.
 
-When you contact Herder Elektronische Systemen by email, the information you provide is used to respond to the inquiry and assess the requested engineering discussion.
+Sensitive technical files should not be sent in the initial message.
 
-Sensitive files
+Secure file exchange can be arranged after the first discussion and, where appropriate, after an NDA is in place.
 
-Please do not send sensitive technical files in the initial email. Secure file exchange can be arranged after the first discussion.
+Client information, project details and technical material are not published without explicit authorization.
 
-Public portfolio material
-
-Project details are handled confidentially. Public portfolio material is published only when authorized.
-
-Hosting and email
-
-The static site is deployed through Cloudflare Pages. Email inquiries are handled through Google Workspace at info@herdersystemen.com.
-
+The site is hosted through Cloudflare Pages. Email is handled through Google Workspace.
 
 ENGAGEMENT NOTES
 
-Clear scope. Clear evidence.
+Engineering work is defined by an agreed scope, assumptions, responsibilities, deliverables, schedule and acceptance criteria.
 
-Engineering work is defined by an agreed scope, assumptions, deliverables, responsibilities and acceptance criteria.
+A project inquiry or portfolio example does not create an engagement.
 
-A project discussion or portfolio example does not create an engagement by itself.
+Recommendations depend on the available requirements, hardware, software, measurements and access.
 
-Recommendations depend on the available requirements, hardware, software, measurements and constraints.
+Portfolio examples are not guarantees of:
 
-Portfolio examples include personal engineering work, public technical projects and research test-facility work. They are identified by source and are not presented as completed private-client engagements.
+* certification
+* regulatory approval
+* production deployment
+* manufacturing readiness
+* long-term reliability
+* a particular technical outcome
 
-Portfolio examples are not guarantees of certification, production deployment, manufacturing capacity or a particular technical result.
-
-Project details are handled confidentially. Public portfolio material is published only when authorized.
-
-
-FOOTER
-
-Services
-Approach
-Selected work
-About
-Privacy
-Engagement notes
-Back to top
-FLYBACK TRANSFORMER FEASIBILITY CALCULATOR
-
-Explore a flyback transformer concept.
-
-Estimate turns ratio, duty cycle, peak current, flux swing, air gap, winding fit, and idealized switch stress. Results are preliminary engineering estimatesÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Ânot a substitute for magnetic characterization, insulation design, thermal validation, leakage-inductance measurement, or hardware testing.
-
-The estimator is limited to isolated flyback concepts. Future topology-specific estimators may be added for other converter types; their equations are not interchangeable with this tool.
-
-Method and limitations
-
-This estimator uses simplified first-pass flyback relationships. It does not model rectifier-bus ripple, controller-specific current limits, CCM behavior, leakage inductance, winding capacitance, proximity and skin effects, fringing near the air gap, core loss, copper loss, thermal rise, creepage, clearance, insulation-system qualification, EMI, snubber or clamp design, tolerance stack-up, or manufacturing variation. Final designs require component data, safety requirements, magnetic measurements, and bench validation.
-
-Need this converted into a buildable transformer specification?
-
-A detailed engagement may include topology and operating-mode review, core and bobbin selection, winding structure, conductor selection, insulation planning, gap specification, loss and thermal estimates, prototype winding, inductance and leakage measurements, waveform and temperature validation.
+Engineering findings are reported within the limits of the available evidence.
