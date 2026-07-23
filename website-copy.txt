@@ -114,7 +114,7 @@ FEATURED PUBLIC WORK
 
 Controls at testbed scale.
 
-PUBLIC RESEARCH AND ENGINEERING WORK
+MICHIGAN TECHNOLOGICAL UNIVERSITY RESEARCH AND GRADUATE LABORATORY PLATFORM
 
 TI Piccolo dual-motor PMSM dynamometer
 
@@ -122,13 +122,13 @@ A dual-motor dynamometer developed to validate permanent-magnet synchronous moto
 
 Jonathan's contribution
 
-Jonathan integrated the dual-motor control system, migrated telemetry from SCI to CAN, connected the testbed to Speedgoat real-time hardware and developed validation workflows for speed, torque, power and efficiency data.
+Jonathan led the integration and technical recovery of the dual-motor control platform, including embedded-control development, QEP feedback, SCI-to-CAN migration, Speedgoat real-time integration, and repeatable torque, speed, power, and efficiency validation workflows.
 
 Evidence and methods
 
 The public repository includes architecture notes, hardware-integration records, MATLAB and Python processing, efficiency maps and measured speed, torque and power data.
 
-Publication boundary
+Institutional context
 
 This work was completed in a research test facility. It is not presented as a private-client engagement or an exclusively owned product. The site links to the public repository without reproducing large source files or models.
 
@@ -813,9 +813,9 @@ BOOSTXL phase-sense and protection calculation showing the 62.0 kÎ© / 4.99 kÎ
 
 VSEN_A, VSEN_B and VSEN_C are individual phase-to-ground measurements. They are not direct phase-to-phase voltage signals.
 
-PUBLICATION BOUNDARY
+Institutional context
 
-This project was completed in a research test facility. It is presented as public research and engineering work, not as a private-client engagement or an exclusively owned product.
+This project was completed in a research test facility. It is presented as MICHIGAN TECHNOLOGICAL UNIVERSITY RESEARCH AND GRADUATE LABORATORY PLATFORM, not as a private-client engagement or an exclusively owned product.
 
 View public repository
 
