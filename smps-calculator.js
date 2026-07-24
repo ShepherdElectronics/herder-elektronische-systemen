@@ -2,7 +2,7 @@
   'use strict';
 
   const fmt = (value, unit = '', sig = 3) => {
-    if (!Number.isFinite(value)) return '';
+    if (!Number.isFinite(value)) return '—';
     const rounded = Number(value.toPrecision(sig));
     return `${rounded.toString()}${unit ? ` ${unit}` : ''}`;
   };
@@ -13,6 +13,7 @@
   const mHToH = (value) => Number(value) / 1e3;
   const percentToRatio = (value) => Number(value) / 100;
   const mOhmToOhm = (value) => Number(value) / 1000;
+  const formatResult = fmt;
 
   const calculators = {
     flyback: {
@@ -20,16 +21,16 @@
       eyebrow: 'Isolated / low to medium power',
       description: 'Estimate primary current, duty cycle, switch stress and the first magnetic boundary.',
       fields: [
-        ['vinMin', 'Minimum DC bus', 'V', 120],
-        ['vinMax', 'Maximum DC bus', 'V', 375],
-        ['vout', 'Output voltage', 'V', 24],
-        ['iout', 'Output current', 'A', 2.5],
-        ['eff', 'Planning efficiency assumption', '%', 85],
-        ['fsw', 'Switching frequency', 'kHz', 100],
-        ['targetDuty', 'Target low-line duty', '%', 45],
-        ['lm', 'Magnetizing inductance', 'uH', 300],
-        ['vf', 'Diode forward drop', 'V', 0.7],
-        ['ripple', 'Output ripple target', '%', 1],
+        ['vinDcMinV', 'Minimum DC bus', 'V', 120],
+        ['vinDcMaxV', 'Maximum DC bus', 'V', 375],
+        ['outputVoltageV', 'Output voltage', 'V', 24],
+        ['outputCurrentA', 'Output current', 'A', 2.5],
+        ['planningEfficiencyPct', 'Planning efficiency', '%', 85],
+        ['switchingFrequencyKHz', 'Switching frequency', 'kHz', 100],
+        ['targetDutyPct', 'Target duty', '%', 45],
+        ['magnetizingInductanceUh', 'Magnetizing inductance', 'uH', 300],
+        ['diodeForwardDropV', 'Diode forward drop', 'V', 0.7],
+        ['outputRipplePct', 'Output ripple target', '%', 1],
       ],
       calculate: (x) => (globalThis.FlybackCalculator ? globalThis.FlybackCalculator.evaluate(x) : { errors: ['flyback-core'], warnings: [], status: 'Red - flyback calculator core not loaded' }),
     },
@@ -38,16 +39,16 @@
       eyebrow: 'Isolated / improved flyback switching',
       description: 'Explore an active-clamp flyback operating point with the same first-pass magnetic boundary and reduced switching-loss outlook.',
       fields: [
-        ['vinMin', 'Minimum DC bus', 'V', 120],
-        ['vinMax', 'Maximum DC bus', 'V', 375],
-        ['vout', 'Output voltage', 'V', 24],
-        ['iout', 'Output current', 'A', 2.5],
-        ['eff', 'Planning efficiency assumption', '%', 88],
-        ['fsw', 'Switching frequency', 'kHz', 100],
-        ['targetDuty', 'Target low-line duty', '%', 45],
-        ['lm', 'Magnetizing inductance', 'uH', 300],
-        ['vf', 'Diode forward drop', 'V', 0.7],
-        ['ripple', 'Output ripple target', '%', 1],
+        ['vinDcMinV', 'Minimum DC bus', 'V', 120],
+        ['vinDcMaxV', 'Maximum DC bus', 'V', 375],
+        ['outputVoltageV', 'Output voltage', 'V', 24],
+        ['outputCurrentA', 'Output current', 'A', 2.5],
+        ['planningEfficiencyPct', 'Planning efficiency', '%', 88],
+        ['switchingFrequencyKHz', 'Switching frequency', 'kHz', 100],
+        ['targetDutyPct', 'Target low-line duty', '%', 45],
+        ['magnetizingInductanceUh', 'Magnetizing inductance', 'uH', 300],
+        ['diodeForwardDropV', 'Diode forward drop', 'V', 0.7],
+        ['outputRipplePct', 'Output ripple target', '%', 1],
       ],
       calculate: (x) => (globalThis.FlybackCalculator ? globalThis.FlybackCalculator.evaluate(x) : { errors: ['flyback-core'], warnings: [], status: 'Red - flyback calculator core not loaded' }),
     },
@@ -196,36 +197,46 @@
   };
 
   function renderTopographyReport(id, report) {
-    if (id === 'flyback' || id === 'activeClamp') {
-      const losses = report.lossRows || [];
-      const lossHtml = losses.map(([label, value]) => `<tr><th>${label}</th><td>${value}</td></tr>`).join('');
+    if (id !== 'flyback' && id !== 'activeClamp') return '';
+    if (!report.valid) {
       return `
-        <section class="smps-efficiency">
-          <h3>Efficiency and thermal outlook</h3>
-          <dl>
-            <dt>Planning efficiency</dt><dd>${fmt((report.po / report.pin) * 100, '%', 0)}</dd>
-            <dt>Estimated total dissipation</dt><dd>${fmt(report.estimatedDissipation, 'W')}</dd>
-            <dt>Input span</dt><dd>${fmt(report.inputSpan, '', 2)}</dd>
-            <dt>Switching frequency</dt><dd>${report.frequencyDisplay}</dd>
-            <dt>Target duty</dt><dd>${fmt(report.targetDuty, '%')}</dd>
-            <dt>Current consistency</dt><dd>${report.mismatchPct <= 5 ? 'Consistent' : 'Review required'}</dd>
-            <dt>Transferred power estimate</dt><dd>${fmt(report.transferredPowerEstimate, 'W')}</dd>
-            <dt>Confidence</dt><dd>${report.valid ? 'Preliminary' : 'Withheld'}</dd>
-          </dl>
-        </section>
         <section class="smps-status-layers">
           <h3>Architecture outlook</h3>
           <dl>
-            <dt>Input validity</dt><dd class="${report.inputValidity === 'Invalid' ? 'bad' : 'good'}">${report.inputValidity}</dd>
-            <dt>Primary issue</dt><dd>${report.primaryIssue}</dd>
-            <dt>Electrical consistency</dt><dd class="${report.electricalStatus === 'Withheld' ? 'bad' : 'good'}">${report.electricalStatus}</dd>
-            <dt>Magnetic feasibility</dt><dd>${report.magneticStatus}</dd>
-            <dt>Thermal feasibility</dt><dd class="${report.thermalStatus === 'Low confidence' ? 'bad' : ''}">${report.thermalStatus}</dd>
-            <dt>Topology suitability</dt><dd class="${report.tone === 'red' ? 'bad' : report.tone === 'amber' ? 'amber' : 'good'}">${report.suitability} * ${report.score}/100</dd>
+            <dt>Input validity</dt><dd class="bad">Invalid</dd>
+            <dt>Primary issue</dt><dd>${report.primaryIssue || 'Not evaluated'}</dd>
+            <dt>Electrical consistency</dt><dd class="bad">Withheld</dd>
+            <dt>Magnetic feasibility</dt><dd>Withheld</dd>
+            <dt>Thermal feasibility</dt><dd class="bad">Withheld</dd>
+            <dt>Topology suitability</dt><dd class="bad">Not evaluated</dd>
           </dl>
         </section>`;
     }
-    return '';
+    return `
+      <section class="smps-efficiency">
+        <h3>Efficiency and thermal outlook</h3>
+        <dl>
+          <dt>Planning efficiency</dt><dd>${fmt((report.po / report.pin) * 100, '%', 0)}</dd>
+          <dt>Estimated total dissipation</dt><dd>${fmt(report.estimatedDissipation, 'W')}</dd>
+          <dt>Input span</dt><dd>${fmt(report.inputSpan, '', 2)}</dd>
+          <dt>Switching frequency</dt><dd>${report.frequencyDisplay}</dd>
+          <dt>Target duty</dt><dd>${fmt(report.targetDutyPct, '%')}</dd>
+          <dt>Current consistency</dt><dd>${report.mismatchPct <= 5 ? 'Consistent' : 'Review required'}</dd>
+          <dt>Transferred power estimate</dt><dd>${fmt(report.transferredPowerEstimate, 'W')}</dd>
+          <dt>Confidence</dt><dd>${report.valid ? 'Preliminary' : 'Withheld'}</dd>
+        </dl>
+      </section>
+      <section class="smps-status-layers">
+        <h3>Architecture outlook</h3>
+        <dl>
+          <dt>Input validity</dt><dd class="${report.inputValidity === 'Invalid' ? 'bad' : 'good'}">${report.inputValidity}</dd>
+          <dt>Primary issue</dt><dd>${report.primaryIssue}</dd>
+          <dt>Electrical consistency</dt><dd class="${report.electricalStatus === 'Withheld' ? 'bad' : 'good'}">${report.electricalStatus}</dd>
+          <dt>Magnetic feasibility</dt><dd>${report.magneticStatus}</dd>
+          <dt>Thermal feasibility</dt><dd class="${report.thermalStatus === 'Low confidence' ? 'bad' : ''}">${report.thermalStatus}</dd>
+          <dt>Topology suitability</dt><dd class="${report.tone === 'red' ? 'bad' : report.tone === 'amber' ? 'amber' : 'good'}">${report.suitability} · ${report.score}/100</dd>
+        </dl>
+      </section>`;
   }
 
   function mount() {
@@ -272,7 +283,9 @@
             ? `<section class="smps-verdict smps-verdict--red"><strong>${id === 'flyback' || id === 'activeClamp' ? 'Equations are solvable; topology fit is poor' : 'Topological fit needs review'}</strong><p>${id === 'flyback' || id === 'activeClamp' ? 'This operating point is not a credible flyback design candidate. Check the frequency, current and magnetic boundary first.' : 'Review the operating point against the actual hardware constraints before building.'}</p></section>`
             : `<section class="smps-verdict smps-verdict--green"><strong>Preliminary operating point is mathematically solvable</strong><p>Continue with the review items below before selecting parts or building hardware.</p></section>`;
 
-        results.innerHTML = `${verdict}${report.groups.map(([title, items]) => `<section><h3>${title}</h3><dl>${items.map(([label, value]) => `<dt>${label}</dt><dd>${value}</dd>`).join('')}</dl></section>`).join('')}${renderTopographyReport(id, report)}<section class="smps-warnings"><h3>Review before build</h3><ul>${(report.warnings || report.notes || []).filter(Boolean).map((warning) => `<li>${warning}</li>`).join('')}</ul></section>`;
+        const warnings = (report.warnings || report.notes || []).filter(Boolean);
+        const warningMarkup = warnings.length ? `<section class="smps-warnings"><h3>Review before build</h3><ul>${warnings.map((warning) => `<li>${warning}</li>`).join('')}</ul></section>` : '';
+        results.innerHTML = `${verdict}${report.groups.map(([title, items]) => `<section><h3>${title}</h3><dl>${items.map(([label, value]) => `<dt>${label}</dt><dd>${value}</dd>`).join('')}</dl></section>`).join('')}${renderTopographyReport(id, report)}${warningMarkup}`;
       };
 
       form.addEventListener('input', update);
