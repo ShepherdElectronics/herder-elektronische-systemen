@@ -1,77 +1,296 @@
-(function () {
+﻿(function () {
   'use strict';
-  const fmt = (value, unit = '', sig = 3) => { if (!Number.isFinite(value)) return '—'; const rounded=Number(value.toPrecision(sig)); return `${rounded.toString()} ${unit}`.trim(); };
+
+  const fmt = (value, unit = '', sig = 3) => {
+    if (!Number.isFinite(value)) return '';
+    const rounded = Number(value.toPrecision(sig));
+    return `${rounded.toString()}${unit ? ` ${unit}` : ''}`;
+  };
+
   const positive = (v) => Number.isFinite(v) && v > 0;
+  const kHzToHz = (value) => Number(value) * 1000;
+  const uHToH = (value) => Number(value) / 1e6;
+  const mHToH = (value) => Number(value) / 1e3;
+  const percentToRatio = (value) => Number(value) / 100;
+  const mOhmToOhm = (value) => Number(value) / 1000;
+
   const calculators = {
     flyback: {
-      label: 'Flyback', eyebrow: 'Isolated / low to medium power',
-      description: 'Estimate primary current, duty cycle, idealized switch stress and the first magnetics boundary.',
-      fields: [['vinMin','Minimum DC bus','V',120],['vinMax','Maximum DC bus','V',375],['vout','Output voltage','V',24],['iout','Output current','A',2.5],['eff','Planning efficiency assumption','%',85],['fsw','Switching frequency','kHz',100],['targetDuty','Target low-line duty','%',45],['lm','Magnetizing inductance','µH',300],['vf','Diode forward drop','V',0.7],['ripple','Output ripple target','%',1]],
-      calculate: (x) => { const eta=x.eff/100, f=x.fsw*1000, p=x.vout*x.iout, pin=p/eta, vsec=x.vout+x.vf, targetDuty=x.targetDuty/100, ratio=vsec*(1-targetDuty)/(targetDuty*x.vinMin), duty=vsec/(ratio*x.vinMin+vsec), pk=x.vinMin/x.lm/1e-6*duty/f, crit=x.vinMin**2*duty**2/f*eta/(2*p), cap=x.iout*duty/f/(x.vout*x.ripple/100); return {groups:[['Power boundary',[['Output power',fmt(p,'W')],['Estimated input power',fmt(pin,'W')],['Target low-line duty',fmt(duty*100,'%')]]],['Magnetics',[['Required Ns/Np turns ratio',fmt(ratio,'',3)],['Critical Lm',fmt(crit*1e6,'µH')],['Selected Lm',fmt(x.lm,'µH')],['Primary peak current',fmt(pk,'A',3)]]],['Stress / output',[['Ideal MOSFET stress',fmt(x.vinMax+vsec/ratio,'V')],['Minimum output capacitance',fmt(cap*1e6,'µF')]]]], warnings:[duty>.5?'Low-line duty exceeds 50%; confirm controller limits and control approach.':'', 'Ideal switch stress excludes leakage ringing, clamps and snubbers.', 'Validate transformer saturation, insulation, thermal performance, EMI and loop stability.']}; }
-    },
-    buck: {
-      label: 'Synchronous buck', eyebrow: 'Non-isolated step-down', description: 'Estimate duty, inductor ripple and current for a regulated step-down rail.',
-      fields: [['vinMin','Minimum input','V',24],['vinMax','Maximum input','V',36],['vout','Output voltage','V',12],['iout','Output current','A',10],['eff','Planning efficiency assumption','%',94],['fsw','Switching frequency','kHz',400],['inductance','Selected inductance','µH',10]],
-      calculate: (x) => { const f=x.fsw*1000,l=x.inductance*1e-6,p=x.vout*x.iout,d=x.vout/x.vinMax,ripple=(x.vinMax-x.vout)*d/(l*f),pk=x.iout+ripple/2; return {groups:[['Power boundary',[['Output power',fmt(p,'W')],['Maximum duty',fmt(d*100,'%')]]],['Inductor',[['Ripple current',fmt(ripple,'A')],['Peak current',fmt(pk,'A')],['Ripple fraction',fmt(ripple/x.iout*100,'%')]]]],warnings:['Validate MOSFET loss, inductor saturation, capacitor RMS current, loop stability, layout and thermal performance.']}; }
-    },    boost: {
-      label: 'Boost', eyebrow: 'Non-isolated step-up', description: 'Explore the inductor and current demands of a first-pass boost stage.',
-      fields: [['vinMin','Minimum input','V',9],['vinNom','Nominal input','V',12],['vout','Output voltage','V',24],['iout','Output current','A',2],['eff','Estimated efficiency','%',92],['fsw','Switching frequency','kHz',400],['inductance','Selected inductance','µH',10],['rippleFraction','Target inductor ripple','%',30]],
-      calculate: (x) => { const eta=x.eff/100,f=x.fsw*1000,l=x.inductance*1e-6,p=x.vout*x.iout,d=1-x.vinMin/x.vout,avg=p/x.vinMin, ripple=x.vinMin*d/(l*f), ideal=x.vinMin*d/(avg*(x.rippleFraction/100)*f), dcm=d*d*x.vinMin*x.vinMin/(2*x.iout*x.vout*f-2*x.iout*x.vinMin*f); return {groups:[['Power boundary',[['Output power',fmt(p,'W')],['Load resistance',fmt(x.vout/x.iout,'Ω')],['Low-line duty',fmt(d*100,'%')]]],['Inductor',[['Ideal inductance',fmt(ideal*1e6,'µH')],['DCM-boundary inductance',fmt(dcm*1e6,'µH')],['Average current',fmt(avg,'A')],['Ripple current',fmt(ripple,'A')]]],['Switch current',[['Inductor peak current',fmt(avg/eta+ripple/2,'A')],['Nominal-input duty',fmt((1-x.vinNom*eta/x.vout)*100,'%')]]]], warnings:[d>.8?'Low-line duty is high; check controller duty and minimum-off-time limits.':'','Validate switch/diode loss, capacitor RMS current, compensation, thermal behavior, EMI and layout.']}; }
+      label: 'Flyback',
+      eyebrow: 'Isolated / low to medium power',
+      description: 'Estimate primary current, duty cycle, switch stress and the first magnetic boundary.',
+      fields: [
+        ['vinMin', 'Minimum DC bus', 'V', 120],
+        ['vinMax', 'Maximum DC bus', 'V', 375],
+        ['vout', 'Output voltage', 'V', 24],
+        ['iout', 'Output current', 'A', 2.5],
+        ['eff', 'Planning efficiency assumption', '%', 85],
+        ['fsw', 'Switching frequency', 'kHz', 100],
+        ['targetDuty', 'Target low-line duty', '%', 45],
+        ['lm', 'Magnetizing inductance', 'uH', 300],
+        ['vf', 'Diode forward drop', 'V', 0.7],
+        ['ripple', 'Output ripple target', '%', 1],
+      ],
+      calculate: (x) => (globalThis.FlybackCalculator ? globalThis.FlybackCalculator.evaluate(x) : { errors: ['flyback-core'], warnings: [], status: 'Red - flyback calculator core not loaded' }),
     },
     activeClamp: {
-      label: 'Active-clamp flyback', eyebrow: 'Isolated / improved flyback switching', description: 'Explore an active-clamp flyback operating point with the same first-pass magnetic boundary and reduced switching-loss outlook.',
-      fields: [['vinMin','Minimum DC bus','V',120],['vinMax','Maximum DC bus','V',375],['vout','Output voltage','V',24],['iout','Output current','A',2.5],['eff','Planning efficiency assumption','%',88],['fsw','Switching frequency','kHz',100],['targetDuty','Target low-line duty','%',45],['lm','Magnetizing inductance','µH',300],['vf','Diode forward drop','V',0.7],['ripple','Output ripple target','%',1]],
-      calculate: (x) => calculators.flyback.calculate(x)
-    },    pfc: {
-      label: 'PFC boost', eyebrow: 'AC front end / regulated DC bus', description: 'Estimate the first current and duty boundary for a boost PFC stage.',
-      fields: [['vacMin','Minimum AC input','V RMS',90],['vacMax','Maximum AC input','V RMS',264],['vout','DC bus target','V',400],['pout','Output power','W',500],['eff','Planning efficiency assumption','%',95],['fsw','Switching frequency','kHz',100],['inductance','Boost inductance','µH',500]],
-      calculate: (x) => { const vin=x.vacMin*Math.SQRT2,f=x.fsw*1000,l=x.inductance*1e-6,d=1-vin/x.vout,iavg=x.pout/vin,ripple=vin*d/(l*f); return {groups:[['Power boundary',[['Input peak at low line',fmt(vin,'V')],['Low-line duty',fmt(d*100,'%')],['Output power',fmt(x.pout,'W')]]],['Inductor',[['Average input current',fmt(iavg,'A')],['Ripple current',fmt(ripple,'A')],['Peak current',fmt(iavg+ripple/2,'A')]]]],warnings:['Verify power factor, line-current distortion, bridge loss, inductor saturation, EMI filter, boost-diode or synchronous-switch loss and thermal behavior.']}; }
-    },    llc: {
-      label: 'LLC half bridge', eyebrow: 'Isolated / resonant conversion', description: 'Explore output current, required voltage gain and operating-frequency boundary for an LLC concept.',
-      fields: [['vinMin','Minimum DC bus','V',300],['vinMax','Maximum DC bus','V',420],['vout','Output voltage','V',24],['pout','Output power','W',500],['eff','Planning efficiency assumption','%',95],['fsw','Nominal resonant frequency','kHz',150],['turns','Secondary / primary turns ratio','',0.12]],
-      calculate: (x) => { const iout=x.pout/x.vout,gain=x.vout/(x.vinMin*x.turns); return {groups:[['Power boundary',[['Output current',fmt(iout,'A')],['Required low-line gain',fmt(gain,'',3)],['Input span',fmt(x.vinMax/x.vinMin,'×')]]],['Resonant outlook',[['Nominal frequency',fmt(x.fsw,'kHz')],['Output power',fmt(x.pout,'W')]]]],warnings:['Validate resonant tank design, gain range, ZVS region, synchronous rectifier behavior, magnetics, light-load control and thermal performance.']}; }
-    },    psfb: {
-      label: 'Phase-shifted full bridge', eyebrow: 'Isolated / higher power', description: 'Estimate transformer current, duty, copper loss and the available loss budget for a PSFB concept.',
-      fields: [['vinMin','Minimum DC bus','V',300],['vinTyp','Typical DC bus','V',390],['vout','Output voltage','V',12],['pout','Output power','W',600],['eff','Estimated efficiency','%',94],['fsw','Switching frequency','kHz',200],['dmax','Maximum duty','%',80],['turns','Secondary / primary turns ratio','',0.65],['ripple','Output-inductor ripple','A',10],['lm','Magnetizing inductance','µH',600],['imag','Magnetizing-current ripple','A',0.4],['dcrP','Primary winding DCR','mΩ',12],['dcrS','Secondary winding DCR','mΩ',1]],
-      calculate: (x) => { const eta=x.eff/100,d=x.vout*x.turns/x.vinTyp, dmax=x.dmax/100,iout=x.pout/x.vout,pk=((x.pout/(x.vout*eta))+x.ripple/2)/x.turns+x.imag,min=((x.pout/(x.vout*eta))-x.ripple/2)/x.turns+x.imag,prms=Math.sqrt(dmax*(pk*min+(pk-min)**2/3)),srms=Math.sqrt((dmax/2)*(iout*(iout-x.ripple/2)+(x.ripple/2)**2/3)),loss=(x.pout*(1-eta))/eta,copper=2*(prms**2*x.dcrP/1000+2*srms**2*x.dcrS/1000),mag=x.vinMin*dmax/(x.lm*x.fsw); return {groups:[['Power boundary',[['Output current',fmt(iout,'A')],['Calculated duty',fmt(d*100,'%')],['Loss budget',fmt(loss,'W')]]],['Transformer currents',[['Primary peak / minimum',`${fmt(pk,'A')} / ${fmt(min,'A')}`],['Primary RMS',fmt(prms,'A')],['Secondary RMS',fmt(srms,'A')],['Magnetizing ripple',fmt(mag,'A')]]],['Loss estimate',[['Transformer copper loss',fmt(copper,'W')],['Remaining loss budget',fmt(loss-copper,'W')]]]], warnings:[d>1?'Calculated duty is above 100%; revise turns ratio or operating point.':'',loss-copper<0?'Estimated transformer copper loss exceeds the efficiency loss budget.':'','Validate ZVS range, dead time, leakage tuning, thermal behavior, loop stability, EMI and safety isolation.']}; }
-    }
+      label: 'Active-clamp flyback',
+      eyebrow: 'Isolated / improved flyback switching',
+      description: 'Explore an active-clamp flyback operating point with the same first-pass magnetic boundary and reduced switching-loss outlook.',
+      fields: [
+        ['vinMin', 'Minimum DC bus', 'V', 120],
+        ['vinMax', 'Maximum DC bus', 'V', 375],
+        ['vout', 'Output voltage', 'V', 24],
+        ['iout', 'Output current', 'A', 2.5],
+        ['eff', 'Planning efficiency assumption', '%', 88],
+        ['fsw', 'Switching frequency', 'kHz', 100],
+        ['targetDuty', 'Target low-line duty', '%', 45],
+        ['lm', 'Magnetizing inductance', 'uH', 300],
+        ['vf', 'Diode forward drop', 'V', 0.7],
+        ['ripple', 'Output ripple target', '%', 1],
+      ],
+      calculate: (x) => (globalThis.FlybackCalculator ? globalThis.FlybackCalculator.evaluate(x) : { errors: ['flyback-core'], warnings: [], status: 'Red - flyback calculator core not loaded' }),
+    },
+    buck: {
+      label: 'Synchronous buck',
+      eyebrow: 'Non-isolated step-down',
+      description: 'Estimate duty, inductor ripple and current for a regulated step-down rail.',
+      fields: [['vinMin', 'Minimum input', 'V', 24], ['vinMax', 'Maximum input', 'V', 36], ['vout', 'Output voltage', 'V', 12], ['iout', 'Output current', 'A', 10], ['eff', 'Planning efficiency assumption', '%', 94], ['fsw', 'Switching frequency', 'kHz', 400], ['inductance', 'Selected inductance', 'uH', 10]],
+      calculate: (x) => {
+        const f = kHzToHz(x.fsw);
+        const l = uHToH(x.inductance);
+        const p = x.vout * x.iout;
+        const duty = x.vout / x.vinMax;
+        const ripple = (x.vinMax - x.vout) * duty / (l * f);
+        const pk = x.iout + ripple / 2;
+        return {
+          errors: [],
+          warnings: [],
+          status: 'Green - preliminary operating point is mathematically solvable',
+          tone: 'green',
+          fit: 'Strong',
+          score: 86,
+          groups: [
+            ['Power boundary', [['Output power', fmt(p, 'W')], ['Maximum duty', fmt(duty * 100, '%')]]],
+            ['Inductor', [['Ripple current', fmt(ripple, 'A')], ['Peak current', fmt(pk, 'A')], ['Ripple fraction', fmt(ripple / x.iout * 100, '%')]]],
+          ],
+          report: { inputSummary: [] },
+          summary: [],
+          notes: ['Validate MOSFET loss, inductor saturation, capacitor RMS current, loop stability, layout and thermal performance.'],
+        };
+      },
+    },
+    boost: {
+      label: 'Boost',
+      eyebrow: 'Non-isolated step-up',
+      description: 'Explore the inductor and current demands of a first-pass boost stage.',
+      fields: [['vinMin', 'Minimum input', 'V', 9], ['vinNom', 'Nominal input', 'V', 12], ['vout', 'Output voltage', 'V', 24], ['iout', 'Output current', 'A', 2], ['eff', 'Estimated efficiency', '%', 92], ['fsw', 'Switching frequency', 'kHz', 400], ['inductance', 'Selected inductance', 'uH', 10], ['rippleFraction', 'Target inductor ripple', '%', 30]],
+      calculate: (x) => {
+        const f = kHzToHz(x.fsw);
+        const l = uHToH(x.inductance);
+        const p = x.vout * x.iout;
+        const duty = 1 - x.vinMin / x.vout;
+        const avg = p / x.vinMin;
+        const ripple = x.vinMin * duty / (l * f);
+        const ideal = x.vinMin * duty / (avg * percentToRatio(x.rippleFraction) * f);
+        const dcm = duty * duty * x.vinMin * x.vinMin / (2 * x.iout * x.vout * f - 2 * x.iout * x.vinMin * f);
+        return {
+          errors: [],
+          warnings: [],
+          status: x.vout > x.vinMin ? 'Green - preliminary operating point is mathematically solvable' : 'Red - output must exceed input for boost operation',
+          tone: x.vout > x.vinMin ? 'green' : 'red',
+          fit: x.vout > x.vinMin ? 'Reasonable' : 'Poor',
+          score: x.vout > x.vinMin ? 78 : 0,
+          groups: [
+            ['Power boundary', [['Output power', fmt(p, 'W')], ['Load resistance', fmt(x.vout / x.iout, 'ohm')], ['Low-line duty', fmt(duty * 100, '%')]]],
+            ['Inductor', [['Ideal inductance', fmt(ideal * 1e6, 'uH')], ['DCM-boundary inductance', fmt(dcm * 1e6, 'uH')], ['Average current', fmt(avg, 'A')], ['Ripple current', fmt(ripple, 'A')]]],
+            ['Switch current', [['Inductor peak current', fmt(avg / percentToRatio(x.eff) + ripple / 2, 'A')], ['Nominal-input duty', fmt((1 - x.vinNom * percentToRatio(x.eff) / x.vout) * 100, '%')]]],
+          ],
+          notes: ['Validate switch/diode loss, capacitor RMS current, compensation, thermal behavior, EMI and layout.'],
+        };
+      },
+    },
+    pfc: {
+      label: 'PFC boost',
+      eyebrow: 'AC front end / regulated DC bus',
+      description: 'Estimate the first current and duty boundary for a boost PFC stage.',
+      fields: [['vacMin', 'Minimum AC input', 'V RMS', 90], ['vacMax', 'Maximum AC input', 'V RMS', 264], ['vout', 'DC bus target', 'V', 400], ['pout', 'Output power', 'W', 500], ['eff', 'Planning efficiency assumption', '%', 95], ['fsw', 'Switching frequency', 'kHz', 100], ['inductance', 'Boost inductance', 'uH', 500]],
+      calculate: (x) => {
+        const vin = x.vacMin * Math.SQRT2;
+        const f = kHzToHz(x.fsw);
+        const l = uHToH(x.inductance);
+        const duty = 1 - vin / x.vout;
+        const iavg = x.pout / vin;
+        const ripple = vin * duty / (l * f);
+        return {
+          errors: [],
+          warnings: [],
+          status: 'Green - preliminary operating point is mathematically solvable',
+          tone: 'green',
+          fit: 'Reasonable',
+          score: 78,
+          groups: [
+            ['Power boundary', [['Input peak at low line', fmt(vin, 'V')], ['Low-line duty', fmt(duty * 100, '%')], ['Output power', fmt(x.pout, 'W')]]],
+            ['Inductor', [['Average input current', fmt(iavg, 'A')], ['Ripple current', fmt(ripple, 'A')], ['Peak current', fmt(iavg + ripple / 2, 'A')]]],
+          ],
+          notes: ['Verify power factor, line-current distortion, bridge loss, inductor saturation, EMI filter, boost-diode or synchronous-switch loss and thermal behavior.'],
+        };
+      },
+    },
+    llc: {
+      label: 'LLC half bridge',
+      eyebrow: 'Isolated / resonant conversion',
+      description: 'Explore output current, required voltage gain and operating-frequency boundary for an LLC concept.',
+      fields: [['vinMin', 'Minimum DC bus', 'V', 300], ['vinMax', 'Maximum DC bus', 'V', 420], ['vout', 'Output voltage', 'V', 24], ['pout', 'Output power', 'W', 500], ['eff', 'Planning efficiency assumption', '%', 95], ['fsw', 'Nominal resonant frequency', 'kHz', 150], ['turns', 'Secondary / primary turns ratio', '', 0.12]],
+      calculate: (x) => {
+        const iout = x.pout / x.vout;
+        const gain = x.vout / (x.vinMin * x.turns);
+        return {
+          errors: [],
+          warnings: [],
+          status: 'Green - preliminary operating point is mathematically solvable',
+          tone: 'green',
+          fit: 'Strong',
+          score: 88,
+          groups: [
+            ['Power boundary', [['Output current', fmt(iout, 'A')], ['Required low-line gain', fmt(gain, '', 3)], ['Input span', fmt(x.vinMax / x.vinMin, '')]]],
+            ['Resonant outlook', [['Nominal frequency', fmt(x.fsw, 'kHz')], ['Output power', fmt(x.pout, 'W')]]],
+          ],
+          notes: ['Validate resonant tank design, gain range, ZVS region, synchronous rectifier behavior, magnetics, light-load control and thermal performance.'],
+        };
+      },
+    },
+    psfb: {
+      label: 'Phase-shifted full bridge',
+      eyebrow: 'Isolated / higher power',
+      description: 'Estimate transformer current, duty, copper loss and the available loss budget for a PSFB concept.',
+      fields: [['vinMin', 'Minimum DC bus', 'V', 300], ['vinTyp', 'Typical DC bus', 'V', 390], ['vout', 'Output voltage', 'V', 12], ['pout', 'Output power', 'W', 600], ['eff', 'Estimated efficiency', '%', 94], ['fsw', 'Switching frequency', 'kHz', 200], ['dmax', 'Maximum duty', '%', 80], ['turns', 'Secondary / primary turns ratio', '', 0.65], ['ripple', 'Output-inductor ripple', 'A', 10], ['lm', 'Magnetizing inductance', 'uH', 600], ['imag', 'Magnetizing-current ripple', 'A', 0.4], ['dcrP', 'Primary winding DCR', 'mOhm', 12], ['dcrS', 'Secondary winding DCR', 'mOhm', 1]],
+      calculate: (x) => {
+        const eta = percentToRatio(x.eff);
+        const duty = x.vout * x.turns / x.vinTyp;
+        const dmax = percentToRatio(x.dmax);
+        const iout = x.pout / x.vout;
+        const pk = ((x.pout / (x.vout * eta)) + x.ripple / 2) / x.turns + x.imag;
+        const min = ((x.pout / (x.vout * eta)) - x.ripple / 2) / x.turns + x.imag;
+        const prms = Math.sqrt(dmax * (pk * min + (pk - min) ** 2 / 3));
+        const srms = Math.sqrt((dmax / 2) * (iout * (iout - x.ripple / 2) + (x.ripple / 2) ** 2 / 3));
+        const loss = (x.pout * (1 - eta)) / eta;
+        const copper = 2 * (prms ** 2 * mOhmToOhm(x.dcrP) + 2 * srms ** 2 * mOhmToOhm(x.dcrS));
+        const mag = x.vinMin * dmax / (uHToH(x.lm) * kHzToHz(x.fsw));
+        return {
+          errors: [],
+          warnings: [],
+          status: 'Green - preliminary operating point is mathematically solvable',
+          tone: 'green',
+          fit: 'Strong',
+          score: 86,
+          groups: [
+            ['Power boundary', [['Output current', fmt(iout, 'A')], ['Calculated duty', fmt(duty * 100, '%')], ['Loss budget', fmt(loss, 'W')]]],
+            ['Transformer currents', [['Primary peak / minimum', `${fmt(pk, 'A')} / ${fmt(min, 'A')}`], ['Primary RMS', fmt(prms, 'A')], ['Secondary RMS', fmt(srms, 'A')], ['Magnetizing ripple', fmt(mag, 'A')]]],
+            ['Loss estimate', [['Transformer copper loss', fmt(copper, 'W')], ['Remaining loss budget', fmt(loss - copper, 'W')]]],
+          ],
+          notes: [duty > 1 ? 'Calculated duty is above 100%; revise turns ratio or operating point.' : '', loss - copper < 0 ? 'Estimated transformer copper loss exceeds the efficiency loss budget.' : '', 'Validate ZVS range, dead time, leakage tuning, thermal behavior, loop stability, EMI and safety isolation.'].filter(Boolean),
+        };
+      },
+    },
   };
-  const getValues = (form) => Object.fromEntries([...form.elements].filter(e=>e.name).map(e=>[e.name,Number(e.value)]));
-  const problemsFor = (id, x) => {
-    const problems=[]; const p=['psfb','pfc','llc'].includes(id)?x.pout:x.vout*x.iout; if(p>10000) problems.push('This operating point exceeds the 10 kW scope of this preliminary client tool. No efficiency or topology result is shown.');
-    if (x.eff>100) problems.push('Estimated efficiency cannot exceed 100%.');
-    if (id==='flyback' && x.vinMin>=x.vinMax) problems.push('Minimum input voltage must be lower than maximum input voltage.');
-    if (id==='flyback' && (x.targetDuty<=5 || x.targetDuty>=90)) problems.push('Target low-line duty must be between 5% and 90% for this quick check.');
-    if (id==='boost' && x.vout<=x.vinMin) problems.push('A boost converter cannot produce an output voltage at or below its minimum input voltage.');
-    if (id==='psfb' && x.vinTyp<x.vinMin) problems.push('Typical input voltage must be at least the minimum input voltage.'); if (id==='psfb' && x.vout*x.turns/x.vinTyp>=.95) problems.push('The calculated PSFB duty is 95% or higher. Revise the turns ratio or operating point.'); if (id==='boost' && (1-x.vinMin/x.vout)>=.95) problems.push('Boost duty is 95% or higher. Increase the input voltage, reduce the output voltage, or choose another architecture.');
-    return problems;
-  };
-  function assessmentFor(id,x) {
-    const p=['psfb','pfc','llc'].includes(id)?x.pout:x.vout*x.iout;
-    if(id==='activeClamp') { const lossLow=p*(.06+.05*Math.min(2,p/250)+.02*Math.max(0,(x.fsw-100)/250)),lossHigh=p*(.13+.10*Math.min(2,p/250)+.05*Math.max(0,(x.fsw-100)/250)),score=p>500?48:72; return {p,score,fit:score<50?'Marginal':'Reasonable',tone:score<50?'amber':'green',lossLow,lossHigh,highPower:p>500,inputs:fmt(p,'W')+' output · '+fmt(x.fsw,'kHz')}; }
-    if(id==='buck') { const d=x.vout/x.vinMax; return {p,score:86,fit:'Strong',tone:'green',lossLow:p*(.02+.02*d),lossHigh:p*(.05+.05*d),inputs:fmt(p,'W')+' output · '+fmt(d*100,'%')+' duty · '+fmt(x.fsw,'kHz')}; }
-    if(id==='pfc') { const duty=1-(x.vacMin*Math.SQRT2)/x.vout; return {p,score:78,fit:'Reasonable',tone:'amber',lossLow:p*(.03+.025*duty),lossHigh:p*(.07+.06*duty),inputs:fmt(p,'W')+' output · '+fmt(duty*100,'%')+' duty · '+fmt(x.fsw,'kHz')}; }
-    if(id==='llc') { const gain=x.vout/(x.vinMin*x.turns); return {p,score:88,fit:'Strong',tone:'green',lossLow:p*(.025+.02*Math.max(0,gain-1)),lossHigh:p*(.055+.05*Math.max(0,gain-1)),inputs:fmt(p,'W')+' output · '+fmt(gain,'',3)+' low-line gain · '+fmt(x.fsw,'kHz')}; }    if(id==='flyback') {
-      const vsec=x.vout+x.vf, duty=x.targetDuty/100, ratio=vsec*(1-duty)/(duty*x.vinMin), stress=x.vinMax+vsec/ratio;
-      const highPower=p>250, highStress=stress>650, highDuty=duty>.55;
-      const score=Math.max(12,82-(highPower?42:0)-(highStress?14:0)-(highDuty?10:0));
-      const span=x.vinMax/x.vinMin, powerFactor=Math.min(2,p/180), dutyPenalty=Math.max(0,duty-.4), frequencyPenalty=Math.max(0,(x.fsw-100)/250), spanPenalty=Math.max(0,span-2), lowVoltagePenalty=Math.max(0,(24-x.vout)/24);
-      const lossLow=p*(.045+.07*powerFactor+.05*dutyPenalty+.025*frequencyPenalty+.018*spanPenalty+.03*lowVoltagePenalty), lossHigh=p*(.10+.14*powerFactor+.10*dutyPenalty+.055*frequencyPenalty+.04*spanPenalty+.06*lowVoltagePenalty);
-      return {p,score,fit:score<45?'Poor':'Reasonable',tone:score<45?'red':'amber',lossLow,lossHigh,stress,highPower,inputs:`${fmt(p,'W')} output · ${fmt(duty*100,'%')} duty · ${fmt(x.fsw,'kHz')} · ${fmt(span,'×')} input span`};
+
+  function renderTopographyReport(id, report) {
+    if (id === 'flyback' || id === 'activeClamp') {
+      const losses = report.lossRows || [];
+      const lossHtml = losses.map(([label, value]) => `<tr><th>${label}</th><td>${value}</td></tr>`).join('');
+      return `
+        <section class="smps-efficiency">
+          <h3>Efficiency and thermal outlook</h3>
+          <dl>
+            <dt>Planning efficiency</dt><dd>${fmt((report.po / report.pin) * 100, '%', 0)}</dd>
+            <dt>Estimated total dissipation</dt><dd>${fmt(report.estimatedDissipation, 'W')}</dd>
+            <dt>Input span</dt><dd>${fmt(report.inputSpan, '', 2)}</dd>
+            <dt>Switching frequency</dt><dd>${report.frequencyDisplay}</dd>
+            <dt>Target duty</dt><dd>${fmt(report.targetDuty, '%')}</dd>
+            <dt>Current consistency</dt><dd>${report.mismatchPct <= 5 ? 'Consistent' : 'Review required'}</dd>
+            <dt>Transferred power estimate</dt><dd>${fmt(report.transferredPowerEstimate, 'W')}</dd>
+            <dt>Confidence</dt><dd>${report.valid ? 'Preliminary' : 'Withheld'}</dd>
+          </dl>
+        </section>
+        <section class="smps-status-layers">
+          <h3>Architecture outlook</h3>
+          <dl>
+            <dt>Input validity</dt><dd class="${report.inputValidity === 'Invalid' ? 'bad' : 'good'}">${report.inputValidity}</dd>
+            <dt>Primary issue</dt><dd>${report.primaryIssue}</dd>
+            <dt>Electrical consistency</dt><dd class="${report.electricalStatus === 'Withheld' ? 'bad' : 'good'}">${report.electricalStatus}</dd>
+            <dt>Magnetic feasibility</dt><dd>${report.magneticStatus}</dd>
+            <dt>Thermal feasibility</dt><dd class="${report.thermalStatus === 'Low confidence' ? 'bad' : ''}">${report.thermalStatus}</dd>
+            <dt>Topology suitability</dt><dd class="${report.tone === 'red' ? 'bad' : report.tone === 'amber' ? 'amber' : 'good'}">${report.suitability} * ${report.score}/100</dd>
+          </dl>
+        </section>`;
     }
-    if(id==='boost') { const duty=1-x.vinMin/x.vout, freqPenalty=Math.max(0,(x.fsw-200)/400); return {p,score:x.vout>x.vinMin?78:0,fit:x.vout>x.vinMin?'Reasonable':'Poor',tone:x.vout>x.vinMin?'amber':'red',lossLow:p*(.025+.03*duty+.015*freqPenalty),lossHigh:p*(.065+.07*duty+.04*freqPenalty),inputs:fmt(p,'W')+' output · '+fmt(duty*100,'%')+' duty · '+fmt(x.fsw,'kHz')}; }
-    { const duty=x.vout*x.turns/x.vinTyp, freqPenalty=Math.max(0,(x.fsw-150)/300); return {p,score:86,fit:'Strong',tone:'green',lossLow:p*(.03+.018*duty+.01*freqPenalty),lossHigh:p*(.065+.04*duty+.025*freqPenalty),inputs:fmt(p,'W')+' output · '+fmt(duty*100,'%')+' duty · '+fmt(x.fsw,'kHz')}; }
+    return '';
   }
-  function outlookMarkup(id,x,a) {
-    const effHigh=100*a.p/(a.p+a.lossLow),effLow=100*a.p/(a.p+a.lossHigh),planning=x.eff;
-    const lossBar=`<div class="smps-loss-bar"><i style="width:${Math.min(100,a.lossLow/a.p*100)}%"></i><b style="width:${Math.max(6,Math.min(100,(a.lossHigh-a.lossLow)/a.p*100))}%"></b></div>`;
-    let drivers=id==='flyback'?'Transformer copper · clamp / leakage · MOSFET switching · output rectifier':'Semiconductor conduction · switching · magnetics · control overhead';
-    let comparison='';
-    if(id==='flyback'&&a.highPower) comparison=`<section class="smps-compare"><h3>Topology comparison for this operating point</h3><table><thead><tr><th>Topology</th><th>Planning estimate</th><th>Suitability</th></tr></thead><tbody><tr><td>Single-switch flyback</td><td>76–84%</td><td class="bad">Poor</td></tr><tr><td>Active-clamp flyback</td><td>84–90%</td><td>Marginal</td></tr><tr><td>Two-switch forward</td><td>87–92%</td><td>Reasonable</td></tr><tr><td>Phase-shifted full bridge</td><td>92–96%</td><td class="good">Strong</td></tr><tr><td>LLC half bridge</td><td>93–97%</td><td class="good">Strong</td></tr></tbody></table><p>Planning estimates only—not guarantees or an automatic topology selection.</p></section>`;
-    const layers=`<section class="smps-status-layers"><h3>Architecture outlook</h3><dl><dt>Electrical equations</dt><dd class="good">Solvable</dd><dt>Magnetic outlook</dt><dd>Review required</dd><dt>Thermal outlook</dt><dd class="${a.tone==='red'?'bad':''}">${a.highPower?'Low confidence':'Preliminary'}</dd><dt>Topology suitability</dt><dd class="${a.tone==='red'?'bad':'good'}">${a.fit} · ${a.score}/100</dd></dl></section>`;
-    return `<section class="smps-efficiency"><h3>Efficiency and thermal outlook</h3><dl><dt>Planning efficiency</dt><dd>${planning.toFixed(0)}%</dd><dt>Loss-derived planning range</dt><dd>${effLow.toFixed(0)}–${effHigh.toFixed(0)}%</dd><dt>Estimated dissipation</dt><dd>${fmt(a.lossLow,'W')}–${fmt(a.lossHigh,'W')}</dd><dt>Inputs applied to range</dt><dd>${a.inputs}</dd><dt>Dominant expected losses</dt><dd>${drivers}</dd><dt>Confidence</dt><dd>Preliminary</dd></dl>${lossBar}<p>Dark bar: expected loss floor. Lighter extension: uncertainty from unknown component, magnetics, layout and cooling details.</p></section>${layers}${comparison}`;
+
+  function mount() {
+    const tabs = document.querySelectorAll('[data-smps-topology]');
+    if (!tabs.length) return;
+
+    const render = (id) => {
+      const c = calculators[id];
+      const host = document.querySelector('#calculator-workspace');
+      host.innerHTML = `
+        <div class="smps-tool-head">
+          <div>
+            <p class="smps-tool-kicker">${c.eyebrow}</p>
+            <h2>${c.label}<br><em>feasibility estimator.</em></h2>
+            <p>${c.description}</p>
+          </div>
+          <button class="smps-reset" type="button">Restore example inputs</button>
+        </div>
+        <div class="smps-tool-grid">
+          <form class="smps-form" novalidate>
+            ${c.fields.map(([key, label, unit, value]) => `
+              <label>
+                <span>${label}</span>
+                <span class="smps-input">
+                  <input type="number" name="${key}" value="${value}" step="any" min="0">
+                  <i>${unit || 'value'}</i>
+                </span>
+              </label>
+            `).join('')}
+          </form>
+          <section class="smps-results" aria-live="polite"></section>
+        </div>`;
+
+      const form = host.querySelector('form');
+      const results = host.querySelector('.smps-results');
+      const reset = host.querySelector('.smps-reset');
+
+      const update = () => {
+        const x = Object.fromEntries(new FormData(form));
+        const report = c.calculate(x);
+        const verdict = report.errors && report.errors.length
+          ? `<section class="smps-verdict smps-verdict--red"><strong>Invalid input</strong><p>${report.status}</p></section>`
+          : report.tone === 'red'
+            ? `<section class="smps-verdict smps-verdict--red"><strong>${id === 'flyback' || id === 'activeClamp' ? 'Equations are solvable; topology fit is poor' : 'Topological fit needs review'}</strong><p>${id === 'flyback' || id === 'activeClamp' ? 'This operating point is not a credible flyback design candidate. Check the frequency, current and magnetic boundary first.' : 'Review the operating point against the actual hardware constraints before building.'}</p></section>`
+            : `<section class="smps-verdict smps-verdict--green"><strong>Preliminary operating point is mathematically solvable</strong><p>Continue with the review items below before selecting parts or building hardware.</p></section>`;
+
+        results.innerHTML = `${verdict}${report.groups.map(([title, items]) => `<section><h3>${title}</h3><dl>${items.map(([label, value]) => `<dt>${label}</dt><dd>${value}</dd>`).join('')}</dl></section>`).join('')}${renderTopographyReport(id, report)}<section class="smps-warnings"><h3>Review before build</h3><ul>${(report.warnings || report.notes || []).filter(Boolean).map((warning) => `<li>${warning}</li>`).join('')}</ul></section>`;
+      };
+
+      form.addEventListener('input', update);
+      reset.addEventListener('click', () => {
+        c.fields.forEach(([key, , , value]) => { form.elements[key].value = value; });
+        update();
+      });
+      update();
+    };
+
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+      render(tab.dataset.smpsTopology);
+    }));
+
+    render('flyback');
   }
-  function render(id) { const c=calculators[id], host=document.querySelector('#calculator-workspace'); host.innerHTML=`<div class="smps-tool-head"><div><p class="smps-tool-kicker">${c.eyebrow}</p><h2>${c.label}<br><em>feasibility estimator.</em></h2><p>${c.description}</p></div><button class="smps-reset" type="button">Restore example inputs</button></div><div class="smps-tool-grid"><form class="smps-form" novalidate>${c.fields.map(([key,label,unit,value])=>`<label><span>${label}</span><span class="smps-input"><input type="number" name="${key}" value="${value}" step="any" min="0"><i>${unit||'value'}</i></span></label>`).join('')}</form><section class="smps-results" aria-live="polite"></section></div>`; const form=host.querySelector('form'), results=host.querySelector('.smps-results'); const update=()=>{const x=getValues(form),invalid=[...form.elements].filter(e=>e.name&&!positive(x[e.name]));[...form.elements].filter(e=>e.name).forEach(e=>e.closest('label').classList.toggle('is-invalid',invalid.includes(e)));if(invalid.length){results.innerHTML='<section class="smps-verdict smps-verdict--red"><strong>Invalid input</strong><p>Fields in red must contain a positive value before this concept can be evaluated.</p></section>';return;}const problems=problemsFor(id,x);if(problems.length){results.innerHTML=`<section class="smps-verdict smps-verdict--red"><strong>Outside calculator scope</strong><p>${problems.join(' ')}</p></section>`;return;}const r=c.calculate(x),a=assessmentFor(id,x),verdict=a.tone==='red'?`<section class="smps-verdict smps-verdict--red"><strong>Equations are solvable; topology fit is poor</strong><p>A conventional single-switch flyback is unlikely to be an efficient or thermally practical choice at this power level. Evaluate active-clamp flyback, two-switch forward, phase-shifted full bridge or LLC based on the actual isolation, regulation, transient and cost requirements.</p></section>`:`<section class="smps-verdict smps-verdict--green"><strong>Preliminary operating point is mathematically solvable</strong><p>Continue with the review items below before selecting parts or building hardware.</p></section>`;results.innerHTML=verdict+r.groups.map(([title,items])=>`<section><h3>${title}</h3><dl>${items.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl></section>`).join('')+outlookMarkup(id,x,a)+`<section class="smps-warnings"><h3>Review before build</h3><ul>${r.warnings.filter(Boolean).map(w=>`<li>${w}</li>`).join('')}</ul></section>`}; form.addEventListener('input',update);host.querySelector('.smps-reset').addEventListener('click',()=>{c.fields.forEach(([key,,,value])=>form.elements[key].value=value);update()});update(); }
-  function mount(){const tabs=document.querySelectorAll('[data-smps-topology]');if(!tabs.length)return;tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(t=>t.setAttribute('aria-selected','false'));tab.setAttribute('aria-selected','true');render(tab.dataset.smpsTopology)}));render('flyback');}
-  document.addEventListener('DOMContentLoaded',mount);
+
+  if (typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', mount);
 })();
